@@ -2,12 +2,12 @@ CC 		= c++
 CFLAGS 	= -Wall -Wextra -Werror
 NAME 	= megaphone
 SRC 	= megaphone.cpp
-OBJ		= $(SRC:%.c=%.o)
+OBJ		= $(SRC:%.cpp=%.o)
 
 $(NAME):	$(OBJ)
 		$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-%.o:	%.c
+%.o:	%.cpp
 		$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
