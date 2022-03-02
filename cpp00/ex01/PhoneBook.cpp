@@ -6,36 +6,33 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 23:07:41 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/02 03:49:07 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/02 03:54:50 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook(void) {
-
 	no_contacts = 0;
 	iterator = 0;
-	return ;
+	return;
 }
 
 PhoneBook::~PhoneBook(void) {
-
-	return ;
+	return;
 }
 
-void	PhoneBook::run(void) {
-
-	std::cout << "Hello ◕ ◡ ◕" << std::endl;
-	std::cout << "This is MyPhoneBook®" << std::endl;
-	std::cout << "Valid queries: ADD, SEARCH, EXIT" << std::endl << std::endl;
+void PhoneBook::run(void) {
+	std::cout << "Hello ◕ ◡ ◕" << std::endl
+	          << "This is MyPhoneBook®" << std::endl
+	          << "Valid queries: ADD, SEARCH, EXIT" << std::endl
+	          << std::endl;
 	while (PhoneBook::loop())
-		continue ;
+		continue;
 	std::cout << "◕︵◕ Bye, bye ◕︵◕" << std::endl;
 }
 
-bool	PhoneBook::loop(void) {
-
+bool PhoneBook::loop(void) {
 	std::string input;
 
 	input.clear();
@@ -53,13 +50,11 @@ bool	PhoneBook::loop(void) {
 	return (true);
 }
 
-void	PhoneBook::search(void) {
-
-	int	i = -1;
+void PhoneBook::search(void) {
+	int i = -1;
 
 	std::cout << std::endl;
-	while (++i < PhoneBook::no_contacts)
-	{
+	while (++i < PhoneBook::no_contacts) {
 		std::cout << "| ";
 		std::cout << std::setw(10) << std::left;
 		std::cout << i + 1 << " | ";
@@ -82,26 +77,20 @@ void	PhoneBook::search(void) {
 	std::cout << std::endl;
 }
 
-void	PhoneBook::add(void) {
-
-	Contact		contact;
+void PhoneBook::add(void) {
+	Contact contact;
 
 	std::cout << std::endl;
-	if (!PhoneBook::check_token("First name of the contact:", &contact.name)
-	||  !PhoneBook::check_token("Last name of the contact:", &contact.surname)
-	||  !PhoneBook::check_token("Nickname of the contact:", &contact.nickname)
-	||  !PhoneBook::check_token("Phone # of the contact:", &contact.phone)
-	||  !PhoneBook::check_token("Contact's darkest secret:", &contact.secret))
+	if (!PhoneBook::check_token("First name of the contact:", &contact.name) || !PhoneBook::check_token("Last name of the contact:", &contact.surname) || !PhoneBook::check_token("Nickname of the contact:", &contact.nickname) || !PhoneBook::check_token("Phone # of the contact:", &contact.phone) || !PhoneBook::check_token("Contact's darkest secret:", &contact.secret))
 		return (PhoneBook::print_error("Field cannot be empty"));
 	PhoneBook::save(contact);
-	std::cout << std::endl;
-	std::cout << "CONTACT REGISTERED";
-	std::cout << std::endl;
-	std::cout << std::endl;
+	std::cout << std::endl
+	          << "CONTACT REGISTERED"
+	          << std::endl
+	          << std::endl;
 }
 
-void	PhoneBook::save(Contact contact) {
-
+void PhoneBook::save(Contact contact) {
 	std::cout << PhoneBook::iterator << std::endl;
 	PhoneBook::contacts[iterator].name.assign(contact.name);
 	PhoneBook::contacts[iterator].surname.assign(contact.surname);
@@ -114,48 +103,44 @@ void	PhoneBook::save(Contact contact) {
 		iterator = 0;
 	else
 		iterator++;
-	return ;
+	return;
 }
 
-void	PhoneBook::instructions(void) {
-
-	std::cerr << std::endl << "Error ¯\\_(ツ)_/¯" << std::endl << std::endl;
-	std::cerr << "Valid input" << std::endl;
-	std::cerr << "ADD: save a new contact" << std::endl;
-	std::cerr << "SEARCH: displays contacts" << std::endl;
-	std::cerr << "EXIT: quit MyPhoneBook" << std::endl << std::endl;
+void PhoneBook::instructions(void) {
+	std::cerr << std::endl
+	          << "Error ¯\\_(ツ)_/¯" << std::endl
+	          << std::endl
+	          << "Valid input" << std::endl
+	          << "ADD: save a new contact" << std::endl
+	          << "SEARCH: displays contacts" << std::endl
+	          << "EXIT: quit MyPhoneBook" << std::endl
+	          << std::endl;
 }
 
-void	PhoneBook::print_error(std::string str)
-{
-	std::cout << "Error: " << str << std::endl << std::endl;
-	return ;
+void PhoneBook::print_error(std::string str) {
+	std::cout << "Error: " << str << std::endl
+	          << std::endl;
+	return;
 }
 
-void	PhoneBook::print_format(std::string str)
-{
+void PhoneBook::print_format(std::string str) {
 	std::cout << std::setw(10) << std::left;
 	if (str.size() > 9)
-		std::cout << str.substr(0, 9) + (std::string)"." << " | ";
+		std::cout << str.substr(0, 9) + (std::string) "." << " | ";
 	else
 		std::cout << str << " | ";
 }
 
-void	PhoneBook::print_contact(std::string key, std::string value)
-{
+void PhoneBook::print_contact(std::string key, std::string value) {
 	std::cout << std::setw(10) << std::left;
 	std::cout << key << ": ";
 	std::cout << value << std::endl;
 }
 
-bool	PhoneBook::check_token(std::string key, std::string *ptr)
-{
+bool PhoneBook::check_token(std::string key, std::string *ptr) {
 	std::cout << key << std::endl;
 	std::getline(std::cin, *ptr);
 	if (ptr->empty())
 		return (false);
 	return (true);
 }
-
-
-
