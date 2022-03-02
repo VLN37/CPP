@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 20:33:28 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/02 01:50:48 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/02 03:32:19 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ class PhoneBook {
 		void	print_error(std::string str);
 		void	print_format(std::string str);
 		void	print_contact(std::string key, std::string value);
+		bool	check_token(std::string key, std::string *ptr);
+
 		void	save(Contact contact);
 };
 
