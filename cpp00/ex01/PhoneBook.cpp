@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 23:07:41 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/02 03:54:50 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/02 04:06:37 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,11 @@ void PhoneBook::add(void) {
 	Contact contact;
 
 	std::cout << std::endl;
-	if (!PhoneBook::check_token("First name of the contact:", &contact.name) || !PhoneBook::check_token("Last name of the contact:", &contact.surname) || !PhoneBook::check_token("Nickname of the contact:", &contact.nickname) || !PhoneBook::check_token("Phone # of the contact:", &contact.phone) || !PhoneBook::check_token("Contact's darkest secret:", &contact.secret))
+	if (!PhoneBook::check_token("First name of the contact:", &contact.name)
+	|| !PhoneBook::check_token("Last name of the contact:", &contact.surname)
+	|| !PhoneBook::check_token("Nickname of the contact:", &contact.nickname)
+	|| !PhoneBook::check_token("Phone # of the contact:", &contact.phone)
+	|| !PhoneBook::check_token("Contact's darkest secret:", &contact.secret))
 		return (PhoneBook::print_error("Field cannot be empty"));
 	PhoneBook::save(contact);
 	std::cout << std::endl
