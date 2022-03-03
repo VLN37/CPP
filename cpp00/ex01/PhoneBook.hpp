@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 20:33:28 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/03 15:15:42 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/03 15:50:24 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ class PhoneBook {
 		void	print_error(std::string str) const;
 		void	print_format(std::string str) const;
 		void	print_contact(std::string key, std::string value) const;
-		bool	check_phone(Contact contact, std::string key, func_ptr setvar);
-		bool	check_token(Contact contact, std::string key, func_ptr setvar);
+		bool	check_phone(std::string key, func_ptr setvar);
+		bool	check_token(std::string key, func_ptr setvar);
 		void	clear_contact(Contact contact);
 		void	save(Contact contact, int iterator);
 };

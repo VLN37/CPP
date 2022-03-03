@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 23:07:41 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/03 15:48:41 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/03 15:57:21 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,11 +90,11 @@ void PhoneBook::add(void) {
 	Contact cont;
 
 	std::cout << std::endl;
-	if (!PhoneBook::check_token(cont, "First name of the contact:", &Contact::setname)
-	|| !PhoneBook::check_token(cont, "Last name of the contact:", &Contact::setsurname)
-	|| !PhoneBook::check_token(cont, "Nickname of the contact:", &Contact::setnickname)
-	|| !PhoneBook::check_phone(cont, "Phone # of the contact:", &Contact::setphone)
-	|| !PhoneBook::check_token(cont, "Contact's darkest secret:", &Contact::setsecret))
+	if (!PhoneBook::check_token("First name of the contact:", &Contact::setname)
+	|| !PhoneBook::check_token("Last name of the contact:", &Contact::setsurname)
+	|| !PhoneBook::check_token("Nickname of the contact:", &Contact::setnickname)
+	|| !PhoneBook::check_phone("Phone # of the contact:", &Contact::setphone)
+	|| !PhoneBook::check_token("Contact's darkest secret:", &Contact::setsecret))
 		return (print_error("Invalid field"));
 	if (PhoneBook::iterator == 7)
 		iterator = 0;
@@ -156,7 +156,7 @@ void PhoneBook::print_contact(std::string key, std::string value) const {
 	std::cout << value << std::endl;
 }
 
-bool PhoneBook::check_phone(Contact contact, std::string key, func_ptr setvar) {
+bool PhoneBook::check_phone(std::string key, func_ptr setvar) {
 	std::string token;
 
 	std::cout << key << std::endl;
@@ -166,19 +166,20 @@ bool PhoneBook::check_phone(Contact contact, std::string key, func_ptr setvar) {
 	for (std::string::iterator i = token.begin(); i != token.end(); i++)
 		if (!isdigit(*i) && *i != '-' && *i != ' ' && *i != '(' && *i != ')')
 			return (false);
-	(contact.*setvar)(token);
 	(this->contacts[iterator].*setvar)(token);
 	return (true);
 }
 
-bool PhoneBook::check_token(Contact contact, std::string key, func_ptr setvar) {
+bool PhoneBook::check_token(std::string key, func_ptr setvar) {
 	std::string	token;
 
 	std::cout << key << std::endl;
 	std::getline(std::cin, token);
 	if (token.empty())
 		return (false);
-	(contact.*setvar)(token);
+	for (std::string::iterator i = token.begin(); i != token.end(); i++)
+		if (!isascii(*i))
+			return (false);
 	(this->contacts[iterator].*setvar)(token);
 	return (true);
 }
