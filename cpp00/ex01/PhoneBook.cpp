@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 23:07:41 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/03 01:19:44 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/03 02:56:35 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void PhoneBook::search(void) {
 	std::cout << std::endl;
 	while (++i < PhoneBook::no_contacts) {
 		std::cout << "| "
-		          << std::setw(10) << std::left
+		          << std::setw(10) << std::right
 		          << i + 1 << " | ";
 		print_format(PhoneBook::contacts[i].name);
 		print_format(PhoneBook::contacts[i].surname);
@@ -66,10 +66,10 @@ void PhoneBook::search(void) {
 		std::cout << std::endl;
 	}
 	std::cout << std::endl
-	          << "Enter desired contact ID (1 - 8)"
-	          << std::endl
-	          << std::endl;
+			  << "Enter desired contact ID (1 - 8)"
+			  << std::endl;
 	std::cin >> i;
+	std::cout << std::endl;
 	if (std::cin.fail()) {
 		std::cin.clear();
 		std::cin.ignore(INT_MAX, '\n');
@@ -103,7 +103,6 @@ void PhoneBook::add(void) {
 }
 
 void PhoneBook::save(Contact contact) {
-	std::cout << PhoneBook::iterator << std::endl;
 	PhoneBook::contacts[iterator].name.assign(contact.name);
 	PhoneBook::contacts[iterator].surname.assign(contact.surname);
 	PhoneBook::contacts[iterator].nickname.assign(contact.nickname);
@@ -136,7 +135,7 @@ void PhoneBook::print_error(std::string str) const {
 }
 
 void PhoneBook::print_format(std::string str) const {
-	std::cout << std::setw(10) << std::left;
+	std::cout << std::setw(10) << std::right;
 	if (str.size() > 9)
 		std::cout << str.substr(0, 9) + (std::string) "."  << " | ";
 	else
@@ -144,7 +143,7 @@ void PhoneBook::print_format(std::string str) const {
 }
 
 void PhoneBook::print_contact(std::string key, std::string value) const {
-	std::cout << std::setw(10) << std::left;
+	std::cout << std::setw(10) << std::right;
 	std::cout << key << ": ";
 	std::cout << value << std::endl;
 }
