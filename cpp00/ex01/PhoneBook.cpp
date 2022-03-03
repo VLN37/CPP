@@ -6,11 +6,13 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 23:07:41 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/02 04:06:37 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/03 01:04:03 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+
+#include <limits.h>
 
 PhoneBook::PhoneBook(void) {
 	no_contacts = 0;
@@ -55,18 +57,24 @@ void PhoneBook::search(void) {
 
 	std::cout << std::endl;
 	while (++i < PhoneBook::no_contacts) {
-		std::cout << "| ";
-		std::cout << std::setw(10) << std::left;
-		std::cout << i + 1 << " | ";
+		std::cout << "| "
+		          << std::setw(10) << std::left
+		          << i + 1 << " | ";
 		print_format(PhoneBook::contacts[i].name);
 		print_format(PhoneBook::contacts[i].surname);
 		print_format(PhoneBook::contacts[i].nickname);
 		std::cout << std::endl;
 	}
-	std::cout << std::endl;
-	std::cout << "Enter desired contact ID (1 - 8)" << std::endl;
+	std::cout << std::endl
+	          << "Enter desired contact ID (1 - 8)"
+	          << std::endl
+	          << std::endl;
 	std::cin >> i;
-	std::cout << std::endl;
+	if (std::cin.fail()) {
+		std::cin.clear();
+		std::cin.ignore(INT_MAX, '\n');
+		return (print_error("Input is not an integer"));
+	}
 	if (i < 1 || i > 8 || i > no_contacts)
 		return (print_error("Invalid index"));
 	print_contact("Name", PhoneBook::contacts[i - 1].name);
@@ -130,7 +138,7 @@ void PhoneBook::print_error(std::string str) {
 void PhoneBook::print_format(std::string str) {
 	std::cout << std::setw(10) << std::left;
 	if (str.size() > 9)
-		std::cout << str.substr(0, 9) + (std::string) "." << " | ";
+		std::cout << str.substr(0, 9) + (std::string) "."  << " | ";
 	else
 		std::cout << str << " | ";
 }
