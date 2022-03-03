@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 23:07:41 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/03 01:04:03 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/03 01:19:44 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 #include <limits.h>
 
 PhoneBook::PhoneBook(void) {
-	no_contacts = 0;
-	iterator = 0;
+	this->no_contacts = 0;
+	this->iterator = 0;
 	return;
 }
 
@@ -118,7 +118,7 @@ void PhoneBook::save(Contact contact) {
 	return;
 }
 
-void PhoneBook::instructions(void) {
+void PhoneBook::instructions(void) const{
 	std::cerr << std::endl
 	          << "Error ¯\\_(ツ)_/¯" << std::endl
 	          << std::endl
@@ -129,13 +129,13 @@ void PhoneBook::instructions(void) {
 	          << std::endl;
 }
 
-void PhoneBook::print_error(std::string str) {
+void PhoneBook::print_error(std::string str) const {
 	std::cout << "Error: " << str << std::endl
 	          << std::endl;
 	return;
 }
 
-void PhoneBook::print_format(std::string str) {
+void PhoneBook::print_format(std::string str) const {
 	std::cout << std::setw(10) << std::left;
 	if (str.size() > 9)
 		std::cout << str.substr(0, 9) + (std::string) "."  << " | ";
@@ -143,13 +143,13 @@ void PhoneBook::print_format(std::string str) {
 		std::cout << str << " | ";
 }
 
-void PhoneBook::print_contact(std::string key, std::string value) {
+void PhoneBook::print_contact(std::string key, std::string value) const {
 	std::cout << std::setw(10) << std::left;
 	std::cout << key << ": ";
 	std::cout << value << std::endl;
 }
 
-bool PhoneBook::check_token(std::string key, std::string *ptr) {
+bool PhoneBook::check_token(std::string key, std::string *ptr) const {
 	std::cout << key << std::endl;
 	std::getline(std::cin, *ptr);
 	if (ptr->empty())
