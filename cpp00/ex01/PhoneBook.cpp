@@ -6,13 +6,14 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 23:07:41 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/03 02:56:35 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/03 15:48:41 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-
+#include "Contact.hpp"
 #include <limits.h>
+
 
 PhoneBook::PhoneBook(void) {
 	this->no_contacts = 0;
@@ -60,9 +61,9 @@ void PhoneBook::search(void) {
 		std::cout << "| "
 		          << std::setw(10) << std::right
 		          << i + 1 << " | ";
-		print_format(PhoneBook::contacts[i].name);
-		print_format(PhoneBook::contacts[i].surname);
-		print_format(PhoneBook::contacts[i].nickname);
+		print_format(this->contacts[i].getname());
+		print_format(this->contacts[i].getsurname());
+		print_format(this->contacts[i].getnickname());
 		std::cout << std::endl;
 	}
 	std::cout << std::endl
@@ -77,43 +78,50 @@ void PhoneBook::search(void) {
 	}
 	if (i < 1 || i > 8 || i > no_contacts)
 		return (print_error("Invalid index"));
-	print_contact("Name", PhoneBook::contacts[i - 1].name);
-	print_contact("Surname", PhoneBook::contacts[i - 1].surname);
-	print_contact("Nickname", PhoneBook::contacts[i - 1].nickname);
-	print_contact("Phone", PhoneBook::contacts[i - 1].phone);
-	print_contact("Secret", PhoneBook::contacts[i - 1].secret);
+	print_contact("Name", this->contacts[i - 1].getname());
+	print_contact("Surname", this->contacts[i - 1].getsurname());
+	print_contact("Nickname", this->contacts[i - 1].getnickname());
+	print_contact("Phone", this->contacts[i - 1].getphone());
+	print_contact("Secret", this->contacts[i - 1].getsecret());
 	std::cout << std::endl;
 }
 
 void PhoneBook::add(void) {
-	Contact contact;
+	Contact cont;
 
 	std::cout << std::endl;
-	if (!PhoneBook::check_token("First name of the contact:", &contact.name)
-	|| !PhoneBook::check_token("Last name of the contact:", &contact.surname)
-	|| !PhoneBook::check_token("Nickname of the contact:", &contact.nickname)
-	|| !PhoneBook::check_token("Phone # of the contact:", &contact.phone)
-	|| !PhoneBook::check_token("Contact's darkest secret:", &contact.secret))
-		return (PhoneBook::print_error("Field cannot be empty"));
-	PhoneBook::save(contact);
+	if (!PhoneBook::check_token(cont, "First name of the contact:", &Contact::setname)
+	|| !PhoneBook::check_token(cont, "Last name of the contact:", &Contact::setsurname)
+	|| !PhoneBook::check_token(cont, "Nickname of the contact:", &Contact::setnickname)
+	|| !PhoneBook::check_phone(cont, "Phone # of the contact:", &Contact::setphone)
+	|| !PhoneBook::check_token(cont, "Contact's darkest secret:", &Contact::setsecret))
+		return (print_error("Invalid field"));
+	if (PhoneBook::iterator == 7)
+		iterator = 0;
+	else
+		iterator++;
+	PhoneBook::no_contacts++;
 	std::cout << std::endl
 	          << "CONTACT REGISTERED"
 	          << std::endl
 	          << std::endl;
 }
 
-void PhoneBook::save(Contact contact) {
-	PhoneBook::contacts[iterator].name.assign(contact.name);
-	PhoneBook::contacts[iterator].surname.assign(contact.surname);
-	PhoneBook::contacts[iterator].nickname.assign(contact.nickname);
-	PhoneBook::contacts[iterator].phone.assign(contact.phone);
-	PhoneBook::contacts[iterator].secret.assign(contact.secret);
-	if (PhoneBook::no_contacts < 8)
-		PhoneBook::no_contacts++;
-	if (PhoneBook::iterator == 7)
-		iterator = 0;
-	else
-		iterator++;
+void PhoneBook::save(Contact contact, int iterator)
+{
+	this->contacts[iterator].setname(contact.getname());
+	this->contacts[iterator].setsurname(contact.getsurname());
+	this->contacts[iterator].setnickname(contact.getnickname());
+	this->contacts[iterator].setphone(contact.getphone());
+	this->contacts[iterator].setsecret(contact.getsecret());
+}
+
+void PhoneBook::clear_contact(Contact contact) {
+	contact.setname("");
+	contact.setsurname("");
+	contact.setnickname("");
+	contact.setphone("");
+	contact.setsecret("");
 	return;
 }
 
@@ -148,10 +156,29 @@ void PhoneBook::print_contact(std::string key, std::string value) const {
 	std::cout << value << std::endl;
 }
 
-bool PhoneBook::check_token(std::string key, std::string *ptr) const {
+bool PhoneBook::check_phone(Contact contact, std::string key, func_ptr setvar) {
+	std::string token;
+
 	std::cout << key << std::endl;
-	std::getline(std::cin, *ptr);
-	if (ptr->empty())
+	std::getline(std::cin, token);
+	if (token.empty())
 		return (false);
+	for (std::string::iterator i = token.begin(); i != token.end(); i++)
+		if (!isdigit(*i) && *i != '-' && *i != ' ' && *i != '(' && *i != ')')
+			return (false);
+	(contact.*setvar)(token);
+	(this->contacts[iterator].*setvar)(token);
+	return (true);
+}
+
+bool PhoneBook::check_token(Contact contact, std::string key, func_ptr setvar) {
+	std::string	token;
+
+	std::cout << key << std::endl;
+	std::getline(std::cin, token);
+	if (token.empty())
+		return (false);
+	(contact.*setvar)(token);
+	(this->contacts[iterator].*setvar)(token);
 	return (true);
 }
