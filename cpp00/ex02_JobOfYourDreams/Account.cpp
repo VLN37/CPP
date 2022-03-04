@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 22:32:02 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/03 02:02:19 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/04 19:51:04 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,10 @@ Account::~Account(void) {
 			  << "Account ID: " << this->_accountIndex << std::endl
 			  << "Amount    : " << this->_amount << std::endl
 			  << std::endl;
+}
+
+int	Account::checkAmount(void) const {
+	return (this->_amount);
 }
 
 int	Account::getNbAccounts(void) {
