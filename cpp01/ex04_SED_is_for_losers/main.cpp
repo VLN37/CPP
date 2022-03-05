@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 12:21:20 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/04 23:21:29 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/05 20:36:44 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ void	set_file_contents(std::string filename, std::string content) {
 
 void replace(std::string &str, std::string rem, std::string rep) {
 	std::string	tmp;
-	std::string	res;
 	std::string rest;
 	size_t		i;
 
@@ -72,15 +71,14 @@ void replace(std::string &str, std::string rem, std::string rep) {
 	if (i == str.npos)
 		return ;
 	rest.assign(str);
+	str.clear();
 	while (i != str.npos) {
 		tmp = rest.substr(0, i);
-		i += rem.size();
-		rest = rest.substr(i);
-		res += tmp += rep;
+		rest = rest.substr(i + rem.size());
+		str += tmp += rep;
 		i = rest.find(rem);
 	}
-	res += rest;
-	str.assign(res);
+	str += rest;
 }
 
 int	main(int argc, char **argv) {
