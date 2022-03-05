@@ -1,7 +1,7 @@
 CC 		= c++
 CFLAGS 	= -Wall -Wextra -Werror -std=c++98 -pedantic
-NAME 	= zombie
-SRC 	= main.cpp Zombie.cpp
+NAME 	= moarbrainz
+SRC 	= main.cpp Zombie.cpp zombieHorde.cpp
 OBJ		= $(SRC:%.cpp=%.o)
 
 $(NAME):	$(OBJ)
