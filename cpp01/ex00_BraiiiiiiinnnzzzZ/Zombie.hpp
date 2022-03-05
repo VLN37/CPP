@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 17:01:44 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/05 01:40:17 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/05 02:00:04 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 class Zombie {
 
 	public:
-		Zombie(void);
 		Zombie(std::string name);
 		~Zombie(void);
 
