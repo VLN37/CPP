@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 17:04:41 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/03 17:27:34 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/05 01:24:40 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ Zombie::Zombie(void) {
 
 Zombie::Zombie(std::string name) {
 	this->name = name;
-	Zombie::announce();
 }
 
 Zombie::~Zombie(void) {
