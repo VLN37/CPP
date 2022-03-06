@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 12:21:20 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/05 20:36:44 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/05 22:01:16 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ bool	validation(int argc, char **argv) {
 
 	if (argc != 4)
 	{
-		print_error(ERR_USE);
-		return print_error(ERR_ARG);
+		print_error(ERR_ARG);
+		return print_error(ERR_USE);
 	}
 	file.open(argv[1]);
 	if (!file)
@@ -32,12 +32,6 @@ bool	validation(int argc, char **argv) {
 	std::ifstream	file2;
 	if (file.peek() && file.eof())
 		return print_error(ERR_EMP);
-	str.assign(argv[2]);
-	if (str.empty())
-		return print_error(ERR_ARG1);
-	str.assign(argv[3]);
-	if (str.empty())
-		return print_error(ERR_ARG2);
 	file.close();
 	return true;
 }
@@ -67,6 +61,8 @@ void replace(std::string &str, std::string rem, std::string rep) {
 	std::string rest;
 	size_t		i;
 
+	if (rem.empty() && rep.empty())
+		return ;
 	i = str.find(rem);
 	if (i == str.npos)
 		return ;
@@ -74,12 +70,14 @@ void replace(std::string &str, std::string rem, std::string rep) {
 	str.clear();
 	while (i != str.npos) {
 		tmp = rest.substr(0, i);
-		rest = rest.substr(i + rem.size());
+		i += rem.size();
+		rest = rest.substr(i);
 		str += tmp += rep;
 		i = rest.find(rem);
 	}
 	str += rest;
 }
+
 
 int	main(int argc, char **argv) {
 	if (!validation(argc, argv))

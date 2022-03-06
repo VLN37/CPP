@@ -57,5 +57,9 @@ sed 's/""/""/g' test
 
 echo
 
-make fclean &>/dev/null
-rm -rf test test.replace
+echo -e "\e[1;31mTest 9: Infinite loop test\e[0m"
+./$BIN test "fruit" "fruit juice" && cat test.replace
+
+echo
+
+rm -rf test
