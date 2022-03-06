@@ -59,6 +59,7 @@ echo
 
 echo -e "\e[1;31mTest 9: Infinite loop test\e[0m"
 ./$BIN test "fruit" "fruit juice" && cat test.replace
+sed 's/fruit/fruit juice/g' test
 
 echo
 
