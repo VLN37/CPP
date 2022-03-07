@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 23:32:30 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/05 00:54:30 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/07 17:18:50 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,15 @@ std::string Karen::levels[4] = {
 	"ERROR",
 };
 
+Karen::funcptr Karen::fptr[4] = {
+	&Karen::debug,
+	&Karen::info,
+	&Karen::warning,
+	&Karen::error,
+};
 
 Karen::Karen(void) {
-	fptr[0] = &Karen::debug;
-	fptr[1] = &Karen::info;
-	fptr[2] = &Karen::warning;
-	fptr[3] = &Karen::error;
+	return ;
 }
 
 Karen::~Karen(void) {
@@ -40,18 +43,18 @@ void	Karen::complain(std::string level) {
 	}
 }
 
-void	Karen::debug(void) {
+void	Karen::debug(void)  const {
 	std::cout << DEBUG << std::endl;
 }
 
-void	Karen::info(void) {
+void	Karen::info(void)  const {
 	std::cout << INFO << std::endl;
 }
 
-void	Karen::warning(void) {
+void	Karen::warning(void)  const {
 	std::cout << WARNING << std::endl;
 }
 
-void	Karen::error(void) {
+void	Karen::error(void) const {
 	std::cout << ERROR << std::endl;
 }

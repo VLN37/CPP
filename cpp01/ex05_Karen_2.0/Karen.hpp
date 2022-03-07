@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 23:33:20 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/05 00:54:05 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/07 17:19:02 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 
 class Karen {
 
-	typedef void (Karen::*funcptr)(void);
+	typedef void (Karen::*funcptr)(void) const;
 	public:
 
 		Karen(void);
@@ -39,12 +39,12 @@ class Karen {
 
 	private:
 		static std::string	levels[4];
-		funcptr				fptr[4];
+		static funcptr		fptr[4];
 
-		void	debug(void);
-		void	info(void);
-		void	warning(void);
-		void	error(void);
+		void	debug(void) const;
+		void	info(void) const;
+		void	warning(void) const;
+		void	error(void) const;
 };
 
 #endif
