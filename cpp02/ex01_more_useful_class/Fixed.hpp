@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 22:11:23 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/08 00:47:10 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/08 02:00:16 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FIXED_HPP
 
 #include <iostream>
+#include <math.h>
 
 class Fixed {
 
