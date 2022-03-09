@@ -1,20 +1,24 @@
-CC		= c++
-CFLAGS	= -Wall -Wextra -Werror -std=c++98 -pedantic
+CC 		= c++
+CFLAGS 	= -Wall -Wextra -Werror -std=c++98 -pedantic
 NAME 	= karenFilter
 SRC		= main.cpp Karen.cpp
 INC		= Karen.hpp
-OBJ		= $(SRC:%.cpp=%.o)
+OBJ		= $(SRC:%.cpp=$(OBJDIR)/%.o)
+OBJDIR	= obj
 
-$(NAME):	$(OBJ) $(INC)
+$(NAME):	$(OBJDIR) $(OBJ)
 		$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-%.o:	%.cpp
+$(OBJDIR)/%.o:	%.cpp
 		$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-		rm -rf $(OBJ)
+		rm -rf $(OBJDIR)
 
 fclean:	clean
 		rm -rf $(NAME)
+
+$(OBJDIR):
+		mkdir -p $(OBJDIR)
 
 re:		fclean $(NAME)
