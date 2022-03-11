@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 04:50:02 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/10 20:11:12 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/10 23:36:48 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,32 @@ DiamondTrap::DiamondTrap(void) {
 	name.assign("Mr.DiamondTrap");
 	_type.assign("DiamondTrap");
 	this->hit_points = FragTrap::hit_points;
-	this->energy_points = ClapTrap::energy_points;
+	this->energy_points = ScavTrap::energy_points;
 	this->attack_damage = FragTrap::attack_damage;
 }
 
-DiamondTrap::DiamondTrap(std::string name) {
+DiamondTrap::DiamondTrap(std::string name)
+	//explicitly call the parametric constructor
+	: ClapTrap(name), ScavTrap(name), FragTrap(name) {
 	std::cout << "string DiamondTrap constructor has been called\n";
 	_type.assign("DiamondTrap");
-	this->name = name;
-	ClapTrap::name = name + "_clap_trap";
+	ClapTrap::name = name;
+	this->name = name + "_clap_trap";
 	this->hit_points = FragTrap::hit_points;
-	this->energy_points = ScavTrap::energy_points;
-	std::cout << this->energy_points << "my energy points\n";
+	this->energy_points = ClapTrap::energy_points_base;
 	this->attack_damage = FragTrap::attack_damage;
+	// std::cout << this->energy_points << " diamond energy_points\n";
+	// std::cout << ClapTrap::energy_points_base << " clap energy_points\n";
+	// std::cout << FragTrap::energy_points << " frag energy_points\n";
+	// std::cout << ScavTrap::energy_points << " scav energy_points\n\n";
+	// std::cout << this->hit_points << " diamond hit_points\n";
+	// std::cout << ClapTrap::hit_points << " clap hit_points\n";
+	// std::cout << FragTrap::hit_points << " frag hit_points\n";
+	// std::cout << ScavTrap::hit_points << " scav hit_points\n\n";
+	// std::cout << this->attack_damage << " diamond attack_damage\n";
+	// std::cout << ClapTrap::attack_damage << " clap attack_damage\n";
+	// std::cout << FragTrap::attack_damage << " frag attack_damage\n";
+	// std::cout << ScavTrap::attack_damage << " scav attack_damage\n\n";
 }
 
 DiamondTrap::DiamondTrap(DiamondTrap &src)
@@ -59,7 +72,7 @@ void	DiamondTrap::attack(const std::string &target) {
 
 void	DiamondTrap::WhoAmI(void) const {
 	std::cout << "My name is: "
-			  << this->name
+			  << ClapTrap::name
 			  << "\nMy ClapTrap name is: "
-			  << ClapTrap::name << '\n';
+			  << this->name << '\n';
 }

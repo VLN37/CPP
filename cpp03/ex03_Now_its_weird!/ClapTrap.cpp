@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 00:22:40 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/10 19:29:47 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/10 23:05:13 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ ClapTrap::ClapTrap(void) {
 	this->_type.assign("ClapTrap");
 	this->hit_points = 100;
 	this->energy_points = 50;
+	this->energy_points_base = 50;
 	this->attack_damage = 20;
 }
 
@@ -28,6 +29,7 @@ ClapTrap::ClapTrap(std::string name) {
 	this->_type.assign("ClapTrap");
 	this->hit_points = 100;
 	this->energy_points = 50;
+	this->energy_points_base = 50;
 	this->attack_damage = 20;
 }
 
@@ -71,7 +73,7 @@ void	ClapTrap::print_error(std::string err) {
 
 void	ClapTrap::print_debug(void) const {
 	std::cout << "My class type is: "
-			  << this->_type << "\n"
+			  << this->_type << '\n'
 			  << "Name            : "
 			  << this->name << '\n'
 			  << "Hit Points      : "
@@ -80,7 +82,6 @@ void	ClapTrap::print_debug(void) const {
 			  << this->energy_points << '\n'
 			  << "Attack Damage   : "
 			  << this->attack_damage << "\n\n";
-
 }
 
 void	ClapTrap::attack(const std::string &target) {
@@ -107,7 +108,6 @@ void	ClapTrap::takeDamage(unsigned int amount) {
 			  << " was attacked and now has "
 			  << this->hit_points
 			  << " health points\n";
-
 }
 
 void	ClapTrap::beRepaired(unsigned int amount) {

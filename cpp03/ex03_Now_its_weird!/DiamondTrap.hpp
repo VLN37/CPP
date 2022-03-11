@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 04:45:46 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/10 20:04:12 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/10 22:15:19 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 
-class DiamondTrap : public ScavTrap, public FragTrap {
+class DiamondTrap
+	: public ScavTrap, public FragTrap, virtual public ClapTrap {
 
 	public:
 		DiamondTrap(void);
