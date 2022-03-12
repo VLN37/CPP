@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 01:08:53 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/12 10:10:47 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/12 11:00:05 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,5 @@ void AMateria::use(ICharacter &target) {
 	std::cout << "uses "
 			  << this->getType()
 			  << " on "
-			  << target.getName();
+			  << target.getName() << '\n';
 }

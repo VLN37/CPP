@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 01:07:13 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/12 09:21:30 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/12 11:00:49 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class AMateria {
 
 		std::string const &getType(void) const;
 		virtual AMateria* clone(void) const = 0;
-		void use(ICharacter &target);
+		virtual void use(ICharacter &target);
 
 	protected:
 		std::string _type;

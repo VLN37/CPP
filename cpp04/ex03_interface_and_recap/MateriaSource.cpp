@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 03:04:50 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/12 10:13:37 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/12 10:51:43 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,20 @@ void MateriaSource::learnMateria(AMateria *matptr) {
 	}
 	delete matptr;
 	std::cout << "Cannot learn materia. This Materia Source is full\n";
+}
+
+AMateria	*MateriaSource::find(std::string const type) {
+	int i = -1;
+	while (this->known_spells[++i])
+		if (!type.compare(this->known_spells[i]->getType()))
+			return (this->known_spells[i]);
+	return NULL;
+}
+
+void	MateriaSource::store(AMateria *m) {
+	int i = -1;
+	while (this->known_spells[++i])
+		if (known_spells[i] == m)
+			return ;
+	this->known_spells[i] = m;
 }

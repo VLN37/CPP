@@ -5,14 +5,16 @@ NAME 	= interfaces
 SRC		=	ICharacter.cpp \
 			Character.cpp \
 			AMateria.cpp \
-			Ice.cpp \
 			MateriaSource.cpp \
+			Ice.cpp \
+			Cure.cpp \
 			main.cpp \
 
 INC		=	ICharacter.hpp \
 			AMateria.hpp \
 			Character.hpp \
 			MateriaSource.hpp \
+			Cure.hpp \
 			Ice.hpp \
 
 OBJ		= $(SRC:%.cpp=$(OBJDIR)/%.o)

@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 01:53:34 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/12 09:25:24 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/12 10:53:52 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,21 @@ Character const &Character::operator=(Character const &rhs) {
 }
 
 void	Character::equip(AMateria *m) {
-	(void)m;
-	return ; //TODO
+	int	i = 0;
+
+	while (this->book.spells[i] && i < 4)
+		i++;
+	if (i == 4) {
+		this->book.store(m);
+		return print_error("Cannot equip. Spellbook is full\n");
+	}
+	this->book.spells[i] = m;
+	std::cout << "Spell succesfully equipped\n";
 }
 
 void	Character::unequip(int idx) {
-	(void)idx;
-	return ; //TODO
+	if (idx >= 0 && idx <= 3)
+		this->book.spells[idx] = NULL;
 }
 
 std::string const &Character::getName(void) const {
