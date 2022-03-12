@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 04:50:02 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/11 23:59:05 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/12 00:40:11 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ DiamondTrap::DiamondTrap(void) {
 	name.assign("Mr.DiamondTrap");
 	_type.assign("DiamondTrap");
 	this->hit_points = FragTrap::hit_points;
-	this->energy_points = ScavTrap::energy_points;
+	this->energy_points = ClapTrap::energy_points_base;
 	this->attack_damage = FragTrap::attack_damage;
 }
 
@@ -31,18 +31,6 @@ DiamondTrap::DiamondTrap(std::string name)
 	this->hit_points = FragTrap::hit_points;
 	this->energy_points = ClapTrap::energy_points_base;
 	this->attack_damage = FragTrap::attack_damage;
-	// std::cout << this->energy_points << " diamond energy_points\n";
-	// std::cout << ClapTrap::energy_points_base << " clap energy_points\n";
-	// std::cout << FragTrap::energy_points << " frag energy_points\n";
-	// std::cout << ScavTrap::energy_points << " scav energy_points\n\n";
-	// std::cout << this->hit_points << " diamond hit_points\n";
-	// std::cout << ClapTrap::hit_points << " clap hit_points\n";
-	// std::cout << FragTrap::hit_points << " frag hit_points\n";
-	// std::cout << ScavTrap::hit_points << " scav hit_points\n\n";
-	// std::cout << this->attack_damage << " diamond attack_damage\n";
-	// std::cout << ClapTrap::attack_damage << " clap attack_damage\n";
-	// std::cout << FragTrap::attack_damage << " frag attack_damage\n";
-	// std::cout << ScavTrap::attack_damage << " scav attack_damage\n\n";
 }
 
 DiamondTrap::DiamondTrap(DiamondTrap &src)
