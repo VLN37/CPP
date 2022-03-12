@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 00:22:40 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/09 03:29:45 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/11 23:52:49 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ void	ClapTrap::attack(const std::string &target) {
 }
 
 void	ClapTrap::takeDamage(unsigned int amount) {
+	if (this->hit_points < 1)
+		return print_error (this->name + " is already dead\n");
 	this->hit_points -= amount;
 	if (this->hit_points < 1)
 		return print_error (this->name + " has died\n");

@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 04:50:02 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/10 03:53:36 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/11 23:57:36 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,7 @@ FragTrap	&FragTrap::operator=(FragTrap const &rhs) {
 }
 
 void	FragTrap::highFiveGuys(void) const {
-	std::cout << "Much high five. Very wow.\n";
+	if (this->hit_points < 1)
+		std::cout << "Cannot HighFive mode, he is already dead\n";
+	std::cout << this->name << " throws a HighFive. Very wow.\n";
 }

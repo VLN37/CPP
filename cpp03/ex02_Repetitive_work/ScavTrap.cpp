@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 04:50:02 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/10 03:20:02 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/11 23:56:36 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,7 @@ ScavTrap	&ScavTrap::operator=(ScavTrap const &rhs) {
 }
 
 void	ScavTrap::guardGate(void) const {
+	if (this->hit_points < 1)
+		std::cout << "Cannot enter Guard Gate mode, he is already dead\n";
 	std::cout << "ScavTrap is now in Guard Gate mode\n";
 }

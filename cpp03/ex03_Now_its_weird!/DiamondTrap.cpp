@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 04:50:02 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/10 23:36:48 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/11 23:59:05 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ void	DiamondTrap::attack(const std::string &target) {
 }
 
 void	DiamondTrap::WhoAmI(void) const {
+	if (this->hit_points < 1)
+		std::cout << "Cannot speak, he is already dead\n";
 	std::cout << "My name is: "
 			  << ClapTrap::name
 			  << "\nMy ClapTrap name is: "
