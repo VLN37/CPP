@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 03:03:39 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/12 08:53:03 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/12 10:05:24 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,11 @@ class MateriaSource : public IMateriaSource {
 		virtual void learnMateria(AMateria *matptr);
 		virtual AMateria* createMateria(std::string const & type);
 
-		AMateria *spells[4];
-		AMateria *known_spells[100];
+		AMateria	*spells[4];
+
+	private:
+		AMateria	*known_spells[100];
+		int			index;
 };
 
 #endif
