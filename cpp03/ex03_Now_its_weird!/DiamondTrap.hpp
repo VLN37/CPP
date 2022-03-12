@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 04:45:46 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/10 22:15:19 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/12 04:27:05 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,11 @@ class DiamondTrap
 
 		void		WhoAmI(void) const;
 		void		attack(const std::string &target);
+		virtual std::string get_name(void) const;
+
 
 	private:
-		std::string	name;
+		std::string	_name;
 };
 
 #endif

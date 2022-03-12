@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 04:50:02 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/11 23:58:35 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/12 04:25:39 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 ScavTrap::ScavTrap(void) {
 	std::cout << "default ScavTrap constructor has been called\n";
-	name.assign("Mr.ScavTrap");
+	this->_name.assign("Mr.ScavTrap");
 	_type.assign("ScavTrap");
 }
 
 ScavTrap::ScavTrap(std::string name) {
 	std::cout << "string ScavTrap constructor has been called\n";
-	this->name = name;
+	this->_name = name;
 	_type.assign("ScavTrap");
 }
 
@@ -34,7 +34,7 @@ ScavTrap::~ScavTrap(void) {
 }
 
 ScavTrap	&ScavTrap::operator=(ScavTrap const &rhs) {
-	this->name = rhs.name;
+	this->_name = rhs._name;
 	this->hit_points = rhs.hit_points;
 	this->energy_points = rhs.energy_points;
 	this->attack_damage = rhs.attack_damage;
