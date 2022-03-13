@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 05:37:27 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/13 11:38:30 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/13 14:55:29 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 # define BUREAUCRAT_HPP
 
 #include <iostream>
+
+#define MAX_GRADE 1
+#define MIN_GRADE 150
+#define HIGH_EXC "Grade too high. Reverting to maximum possible grade (1)\n"
+#define LOW_EXC "Grade too low. Reverting to minimum grade (150)\n"
 
 class Bureaucrat {
 

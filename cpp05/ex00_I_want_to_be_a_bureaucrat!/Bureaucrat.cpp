@@ -6,14 +6,14 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 05:38:40 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/13 11:52:59 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/13 14:55:30 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat(void) : _name("Boss's relative") {
-	this->_grade = 150;
+	this->_grade = MAX_GRADE;
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const &src)
@@ -28,21 +28,21 @@ Bureaucrat::Bureaucrat(std::string name, int grade)
 
 void	Bureaucrat::check_exceptions(int grade) {
 	try {
-		if (grade > 150)
+		if (grade > MAX_GRADE)
 			throw Bureaucrat::GradeTooLowException();
 	}
 	catch (std::exception &e) {
 		std::cout << e.what();
-		this->_grade = 150;
+		this->_grade = MAX_GRADE;
 	}
 	try {
-		if (grade < 1)
+		if (grade < MIN_GRADE)
 			throw Bureaucrat::GradeTooHighException();
 		this->_grade = grade;
 	}
 	catch (std::exception &e) {
 		std::cout << e.what();
-		this->_grade = 1;
+		this->_grade = MIN_GRADE;
 	}
 }
 
@@ -88,11 +88,11 @@ int			Bureaucrat::get_grade(void) const {
 }
 
 const char *Bureaucrat::GradeTooHighException::what(void) const throw() {
-	return"Grade too high. Reverting to maximum possible grade (1)\n";
+	return HIGH_EXC;
 }
 
 const char *Bureaucrat::GradeTooLowException::what(void) const throw() {
-	return "Grade too low. Reverting to minimum grade (150)\n";
+	return LOW_EXC;
 }
 
 std::ostream &operator<<(std::ostream &stream, Bureaucrat const &rhs) {
