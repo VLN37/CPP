@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 03:25:03 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/11 08:29:12 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/12 11:43:19 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int	main(void) {
 
 	for (size_t i = 0; i < 100; i++)
 		i % 2 ? animals[i] = new Cat : animals[i] = new Dog;
+	animals[0]->makeSound();
+	animals[1]->makeSound();
 	for (size_t i = 0; i < 100; i++)
 		delete animals[i];
 }
