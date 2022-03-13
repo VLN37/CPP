@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 05:38:40 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/13 11:01:11 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/13 11:52:59 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ Bureaucrat::Bureaucrat(Bureaucrat const &src)
 
 Bureaucrat::Bureaucrat(std::string name, int grade)
 	: _name(name) {
+	check_exceptions(grade);
+}
+
+void	Bureaucrat::check_exceptions(int grade) {
 	try {
 		if (grade > 150)
 			throw Bureaucrat::GradeTooLowException();
@@ -46,31 +50,32 @@ Bureaucrat::~Bureaucrat(void) {
 	return ;
 }
 
-Bureaucrat Bureaucrat::operator=(Bureaucrat const &rhs) {
+Bureaucrat &Bureaucrat::operator=(Bureaucrat const &rhs) {
 	this->_grade = rhs.get_grade();
 	return *this;
 }
 
 Bureaucrat Bureaucrat::operator++(int) {
 	//note to self: why does *this doesn't work as a copy constructor?
-	Bureaucrat ret(this->get_name(), this->get_grade());
-		--this->_grade;
+	//note to self2: when your return by value you actuall construct a copy
+	Bureaucrat ret(*this);
+	check_exceptions(this->_grade - 1);
 	return ret;
 }
 
 Bureaucrat Bureaucrat::operator++(void) {
-	--this->_grade;
+	check_exceptions(this->_grade - 1);
 	return *this;
 }
 
 Bureaucrat Bureaucrat::operator--(int) {
 	Bureaucrat ret(*this);
-	++this->_grade;
+	check_exceptions(this->_grade + 1);
 	return ret;
 }
 
 Bureaucrat Bureaucrat::operator--(void) {
-	++this->_grade;
+	check_exceptions(this->_grade + 1);
 	return *this;
 }
 
@@ -91,7 +96,7 @@ const char *Bureaucrat::GradeTooLowException::what(void) const throw() {
 }
 
 std::ostream &operator<<(std::ostream &stream, Bureaucrat const &rhs) {
-	std::cout << "Bureaucrat is called "
+	std::cout << "This bureaucrat is called "
 			  << rhs.get_name()
 			  << " and has grade "
 			  << rhs.get_grade() << '\n';
