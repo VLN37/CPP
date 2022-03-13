@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 01:26:05 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/12 09:56:30 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/12 13:55:14 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,6 @@ void	Ice::use(ICharacter &target) {
 	std::cout << "casts "
 			  << this->getType()
 			  << " on "
-			  << target.getName();
+			  << target.getName() << '\n';
 }
 

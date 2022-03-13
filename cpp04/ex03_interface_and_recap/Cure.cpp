@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 08:17:39 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/12 11:01:39 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/12 13:55:33 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,5 @@ void	Cure::use(ICharacter &target) {
 	std::cout << "heals "
 			  << target.getName()
 			  << " with "
-			  << this->getType();
+			  << this->getType() << '\n';
 }

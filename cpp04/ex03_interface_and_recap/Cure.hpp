@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 08:16:29 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/12 08:17:23 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/12 13:56:12 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Cure : public AMateria {
 
 		Cure const &operator=(Cure const &rhs);
 
-		virtual AMateria* clone(void) const;
+		AMateria* clone(void) const;
 		virtual void use(ICharacter& target);
 };
 
