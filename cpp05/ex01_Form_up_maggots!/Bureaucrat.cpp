@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 05:38:40 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/13 16:57:56 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/14 06:34:56 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,17 @@ Bureaucrat::Bureaucrat(std::string name, int grade)
 
 void	Bureaucrat::check_exceptions(int grade) {
 	try {
-		if (grade > MAX_GRADE)
-			throw Bureaucrat::GradeTooLowException();
+		if (grade < MAX_GRADE)
+			throw Bureaucrat::GradeTooHighException();
 	}
 	catch (std::exception &e) {
 		std::cout << e.what();
 		this->_grade = MAX_GRADE;
+		return ;
 	}
 	try {
-		if (grade < MIN_GRADE)
-			throw Bureaucrat::GradeTooHighException();
+		if (grade > MIN_GRADE)
+			throw Bureaucrat::GradeTooLowException();
 		this->_grade = grade;
 	}
 	catch (std::exception &e) {
