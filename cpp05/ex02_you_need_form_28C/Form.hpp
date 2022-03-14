@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 15:08:00 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/14 11:47:40 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/14 15:56:21 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <cstdlib>
 #include "Bureaucrat.hpp"
+#include "ft_itoa.h"
 
 class Bureaucrat;
 
@@ -25,7 +26,7 @@ class Form {
 		Form(void);
 		Form(const Form &src);
 		Form(const int grade, const int exec);
-		~Form(void);
+		virtual ~Form(void);
 
 		static int	nbr;
 		const Form &operator=(const Form &src);
@@ -57,7 +58,7 @@ class Form {
 				virtual const char *what() const throw();
 		};
 
-	protected:
+	private:
 		const std::string	_name;
 		const int			_min_grade;
 		const int			_min_exec;

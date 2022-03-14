@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 07:45:12 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/14 12:08:11 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/14 15:18:52 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,21 @@ int RobotomyRequestForm::req_sign = 72;
 int RobotomyRequestForm::req_exec = 45;
 
 RobotomyRequestForm::RobotomyRequestForm(void)
-: Form(req_sign, req_exec) {
-	return ;
+: Form(req_sign, req_exec), _name((std::string)"form #" + ft_itoa(nbr))
+, _min_grade(req_sign), _min_exec(req_exec), _signed(false) {
+	_target = "NULL";
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &src)
-: Form(req_sign, req_exec) {
+: Form(req_sign, req_exec), _name(src.get_name()), _min_grade(src.get_grade()),
+_min_exec(src.get_exec()) {
 	*this = src;
+}
+
+RobotomyRequestForm::RobotomyRequestForm(std::string target)
+: Form(req_sign, req_exec), _name((std::string)"form #" + ft_itoa(nbr))
+, _min_grade(req_sign), _min_exec(req_exec) {
+	this->_target = target;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm(void) {
@@ -32,15 +40,18 @@ RobotomyRequestForm::~RobotomyRequestForm(void) {
 const RobotomyRequestForm
 	&RobotomyRequestForm::operator=(const RobotomyRequestForm &rhs) {
 	this->_signed = rhs.is_signed();
+	this->_target = rhs._target;
 	return *this;
 }
 
-//TODO rand not working properly
 void RobotomyRequestForm::enact(const Form &form) const {
-	std::cout << "\n******* ROBOTOMY REQUEST FORM EXECUTED *******\n\n";
-	std::cout << "FORM NAME: ";
-	std::cout << form.get_name() << "\n\n";
-	std::cout << "< UNCOMFORTABLE DRILLING NOISES >\n\n";
+	srand(time(0));
+	std::cout << "\n******* ROBOTOMY REQUEST FORM EXECUTION *******\n\n"
+			  << "FORM NAME           : "
+			  << form.get_name() << "\n"
+			  << "TARGET TO ROBOTOMIZE: "
+			  << this->_target << "\n\n"
+			  << "< UNCOMFORTABLE DRILLING NOISES >\n\n";
 	if (rand() % 2 == 0)
 		std::cout << "ROBOTOMY SUCCESSFUL\n";
 	else

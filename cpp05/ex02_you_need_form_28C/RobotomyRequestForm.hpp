@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 07:42:59 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/14 10:50:53 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/14 15:24:50 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include "Form.hpp"
+#include "ft_itoa.h"
 
 class RobotomyRequestForm : public Form {
 
@@ -23,6 +24,7 @@ class RobotomyRequestForm : public Form {
 		static int req_exec;
 
 		RobotomyRequestForm(void);
+		RobotomyRequestForm(std::string target);
 		RobotomyRequestForm(const RobotomyRequestForm &src);
 		~RobotomyRequestForm(void);
 
@@ -30,6 +32,12 @@ class RobotomyRequestForm : public Form {
 
 		virtual void enact(const Form &form) const;
 
+	private:
+		const std::string	_name;
+		const int			_min_grade;
+		const int			_min_exec;
+		std::string			_target;
+		bool				_signed;
 };
 
 #endif
