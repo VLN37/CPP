@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 15:09:23 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/13 18:06:03 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/14 12:06:22 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,9 +93,19 @@ std::ostream &operator<<(std::ostream &o, const Form &rhs) {
 }
 
 void	Form::beSigned(const Bureaucrat &congressman) {
-	if (congressman.get_grade() <= this->_min_grade)
+	if (this->_signed) {
+		std::cout << "Form is already signed.\n";
+	} else if (congressman.get_grade() > this->_min_grade) {
+		std::cout << congressman.get_name()
+				  << " couldn't sign "
+				  << this->_name
+				  << " because he's not authoritative enough.\n";
+	} else {
 		this->_signed = true;
-	congressman.signForm(*this);
+		std::cout << congressman.get_name()
+				  << " signed "
+				  << this->_name << '\n';
+	}
 }
 
 const char *Form::GradeTooHighException::what(void) const throw() {

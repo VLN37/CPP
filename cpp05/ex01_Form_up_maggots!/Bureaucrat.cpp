@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 05:38:40 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/14 06:34:56 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/14 12:06:45 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,14 +104,6 @@ std::ostream &operator<<(std::ostream &stream, Bureaucrat const &rhs) {
 	return stream;
 }
 
-void		Bureaucrat::signForm(const Form &form) const {
-	if (form.is_signed())
-		std::cout << this->_name
-				  << " signed "
-				  << form.get_name() << '\n';
-	else
-		std::cout << this->_name
-				  << " couldn't sign "
-				  << form.get_name()
-				  << " because he's a politician, what did you expect?\n";
+void		Bureaucrat::signForm(Form &form) const {
+	form.beSigned(*this);
 }

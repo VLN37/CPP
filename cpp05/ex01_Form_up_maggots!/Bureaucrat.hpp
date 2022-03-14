@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 05:37:27 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/13 16:58:54 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/14 12:07:02 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ class Bureaucrat {
 
 		std::string get_name(void) const;
 		int			get_grade(void) const;
-		void		signForm(const Form &form) const;
+		void		signForm(Form &form) const;
 
 
 	private:
