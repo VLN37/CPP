@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 04:00:59 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/11 08:28:33 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/14 17:05:29 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,12 @@ Dog::Dog(Dog &dog) : AAnimal() {
 Dog::~Dog(void) {
 	std::cout << "Dog destructor called\n";
 	delete this->ideas;
-	return ;
 }
 
-void	Dog::operator=(Dog &rhs) {
+Dog	&Dog::operator=(Dog &rhs) {
 	this->type = rhs.type;
-	for (int i = 0; i < 100; i++)
-		this->ideas[i] = rhs.ideas[i];
+	this->ideas = rhs.ideas;
+	return *this;
 }
 
 void	Dog::makeSound(void) const {

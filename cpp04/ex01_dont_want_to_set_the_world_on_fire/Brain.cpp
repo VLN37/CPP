@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 06:48:53 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/11 06:57:13 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/14 17:03:30 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ Brain::~Brain(void) {
 }
 
 Brain	&Brain::operator=(Brain const &rhs) {
-	(void)rhs;
+	for (int i = 0; i < 100; i++)
+		this->ideas[i] = rhs.ideas[i];
 	return *this;
 }

@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 03:53:21 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/11 07:14:02 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/14 16:59:11 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,9 @@ Animal::~Animal(void) {
 	return ;
 }
 
-void	Animal::operator=(Animal &rhs) {
+Animal	&Animal::operator=(Animal const &rhs) {
 	this->type = rhs.type;
+	return *this;
 }
 
 void	Animal::makeSound(void) const {

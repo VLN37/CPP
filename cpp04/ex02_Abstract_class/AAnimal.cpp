@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 03:53:21 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/11 08:28:07 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/14 17:06:39 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ AAnimal::~AAnimal(void) {
 	return ;
 }
 
-void	AAnimal::operator=(AAnimal &rhs) {
+AAnimal	&AAnimal::operator=(AAnimal &rhs) {
 	this->type = rhs.type;
 }

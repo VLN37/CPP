@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 03:57:23 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/11 07:29:01 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/14 17:01:49 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,14 @@ Cat::~Cat(void) {
 	delete this->ideas;
 }
 
-void	Cat::operator=(Cat &rhs) {
+Cat	&Cat::operator=(Cat const &rhs) {
 	this->type = rhs.type;
-	for (int i = 0; i < 100; i++)
-		this->ideas[i] = rhs.ideas[i];
+	this->ideas = rhs.getBrain();
+	return *this;
+}
+
+Brain	*Cat::getBrain(void) const {
+	return this->ideas;
 }
 
 void	Cat::makeSound(void) const {

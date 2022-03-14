@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 03:57:23 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/11 04:48:08 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/14 16:57:45 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,9 @@ Cat::~Cat(void) {
 	return ;
 }
 
-void	Cat::operator=(Cat &rhs) {
+Cat	&Cat::operator=(Cat &rhs) {
 	this->type = rhs.type;
+	return *this;
 }
 
 void	Cat::makeSound(void) const {
