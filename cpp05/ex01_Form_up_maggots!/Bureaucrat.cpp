@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 05:38:40 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/14 12:06:45 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/14 17:19:39 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ Bureaucrat Bureaucrat::operator++(int) {
 	return ret;
 }
 
-Bureaucrat Bureaucrat::operator++(void) {
+Bureaucrat &Bureaucrat::operator++(void) {
 	check_exceptions(this->_grade - 1);
 	return *this;
 }
@@ -75,7 +75,7 @@ Bureaucrat Bureaucrat::operator--(int) {
 	return ret;
 }
 
-Bureaucrat Bureaucrat::operator--(void) {
+Bureaucrat &Bureaucrat::operator--(void) {
 	check_exceptions(this->_grade + 1);
 	return *this;
 }

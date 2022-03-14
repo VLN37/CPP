@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 05:37:27 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/13 14:55:29 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/14 17:17:46 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,12 @@ class Bureaucrat {
 
 		Bureaucrat &operator=(Bureaucrat const &rhs);
 		Bureaucrat operator++(int);
-		Bureaucrat operator++(void);
+		Bureaucrat &operator++(void);
 		Bureaucrat operator--(int);
-		Bureaucrat operator--(void);
+		Bureaucrat &operator--(void);
 
 		std::string get_name(void) const;
 		int			get_grade(void) const;
-
 
 	private:
 		const std::string	_name;
