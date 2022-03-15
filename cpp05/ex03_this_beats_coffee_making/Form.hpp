@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 15:08:00 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/15 07:36:05 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/15 08:04:03 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define FORM_HPP
 
 #include <iostream>
-#include <cstdlib>
 #include <sstream>
 #include "Bureaucrat.hpp"
 

@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 07:45:12 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/15 07:41:43 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/15 08:08:05 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void ShrubberyCreationForm::enact(const Form &form) const {
 			  << "TARGET TO SHRUBBERIZE: "
 			  << this->_target << "\n\n"
 			  << "< SHRUBBERY CREATED >\n\n";
-	tmp = _target + "_shruberry";
+	tmp = _target + "_shrubbery";
 	outfile.open(tmp.c_str());
 	outfile
 		<< "                                                         .\n"
