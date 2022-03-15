@@ -1,0 +1,40 @@
+CC 		= c++
+CFLAGS 	= -Wall -Wextra -Werror -g3 -std=c++98 -pedantic
+NAME 	= bureaucracy
+
+SRC		=	Bureaucrat.cpp \
+			Form.cpp \
+			RobotomyRequestForm.cpp \
+			ShrubberyCreationForm.cpp \
+			PresidentialPardon.cpp \
+			Intern.cpp \
+			ft_itoa.cpp \
+			main.cpp \
+
+INC		=	Bureaucrat.hpp \
+			Form.hpp \
+			RobotomyRequestForm.hpp \
+			ShrubberyCreationForm.hpp \
+			PresidentialPardon.hpp \
+			Intern.hpp \
+			ft_itoa.h \
+
+OBJ		= $(SRC:%.cpp=$(OBJDIR)/%.o)
+OBJDIR	= obj
+
+$(NAME):	$(OBJDIR) $(OBJ) $(INC)
+		$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+
+$(OBJDIR)/%.o:	%.cpp
+		$(CC) $(CFLAGS) -c $< -o $@
+
+clean:
+		rm -rf $(OBJDIR)
+
+fclean:	clean
+		rm -rf $(NAME)
+
+$(OBJDIR):
+		mkdir -p $(OBJDIR)
+
+re:		fclean $(NAME)
