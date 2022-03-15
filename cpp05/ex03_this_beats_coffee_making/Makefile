@@ -8,7 +8,6 @@ SRC		=	Bureaucrat.cpp \
 			ShrubberyCreationForm.cpp \
 			PresidentialPardon.cpp \
 			Intern.cpp \
-			ft_itoa.cpp \
 			main.cpp \
 
 INC		=	Bureaucrat.hpp \
@@ -17,7 +16,6 @@ INC		=	Bureaucrat.hpp \
 			ShrubberyCreationForm.hpp \
 			PresidentialPardon.hpp \
 			Intern.hpp \
-			ft_itoa.h \
 
 OBJ		= $(SRC:%.cpp=$(OBJDIR)/%.o)
 OBJDIR	= obj

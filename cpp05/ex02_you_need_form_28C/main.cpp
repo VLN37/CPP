@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 06:52:33 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/14 15:56:29 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/15 07:43:43 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,5 @@ int main(void) {
 	form = new ShrubberyCreationForm("casinha do welton");
 	suplicy.signForm(*form);
 	suplicy.executeForm(*form);
+	delete form;
 }

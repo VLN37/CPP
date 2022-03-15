@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 07:45:12 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/14 15:18:52 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/15 07:41:25 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int RobotomyRequestForm::req_sign = 72;
 int RobotomyRequestForm::req_exec = 45;
 
 RobotomyRequestForm::RobotomyRequestForm(void)
-: Form(req_sign, req_exec), _name((std::string)"form #" + ft_itoa(nbr))
+: Form(req_sign, req_exec), _name(format_name("Form #"))
 , _min_grade(req_sign), _min_exec(req_exec), _signed(false) {
 	_target = "NULL";
 }
@@ -28,7 +28,7 @@ _min_exec(src.get_exec()) {
 }
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target)
-: Form(req_sign, req_exec), _name((std::string)"form #" + ft_itoa(nbr))
+: Form(req_sign, req_exec), _name(format_name("Form #"))
 , _min_grade(req_sign), _min_exec(req_exec) {
 	this->_target = target;
 }

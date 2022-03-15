@@ -6,14 +6,12 @@ SRC		=	Bureaucrat.cpp \
 			Form.cpp \
 			RobotomyRequestForm.cpp \
 			ShrubberyCreationForm.cpp \
-			ft_itoa.cpp \
 			main.cpp \
 
 INC		=	Bureaucrat.hpp \
 			Form.hpp \
 			RobotomyRequestForm.hpp \
 			ShrubberyCreationForm.hpp \
-			ft_itoa.h \
 
 OBJ		= $(SRC:%.cpp=$(OBJDIR)/%.o)
 OBJDIR	= obj

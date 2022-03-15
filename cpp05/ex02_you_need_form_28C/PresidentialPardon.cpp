@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 07:45:12 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/14 15:22:40 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/15 07:41:10 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int PresidentialPardon::req_sign = 25;
 int PresidentialPardon::req_exec = 5;
 
 PresidentialPardon::PresidentialPardon(void)
-: Form(req_sign, req_exec), _name((std::string)"form #" + ft_itoa(nbr))
+: Form(req_sign, req_exec), _name(format_name("Form #"))
 , _min_grade(req_sign), _min_exec(req_exec), _signed(false) {
 	_target = "NULL";
 }
@@ -28,7 +28,7 @@ _min_exec(src.get_exec()) {
 }
 
 PresidentialPardon::PresidentialPardon(std::string target)
-: Form(req_sign, req_exec), _name((std::string)"form #" + ft_itoa(nbr))
+: Form(req_sign, req_exec), _name(format_name("Form #"))
 , _min_grade(req_sign), _min_exec(req_exec) {
 	this->_target = target;
 }

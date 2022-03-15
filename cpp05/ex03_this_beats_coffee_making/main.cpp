@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 06:52:33 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/15 06:41:09 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/15 07:27:18 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,5 @@ int main(void) {
 	ptr->beSigned(duval);
 	ptr->beSigned(suplicy);
 	suplicy.executeForm(*ptr);
-
 	delete ptr;
 }

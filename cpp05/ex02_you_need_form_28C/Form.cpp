@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 15:09:23 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/14 14:57:31 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/15 07:43:08 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	Form::check_exception(int grade, int exec) {
 }
 
 Form::Form(void)
-: _name((std::string)"form #" + ft_itoa(nbr))
+: _name(format_name("Form #"))
 , _min_grade(150), _min_exec(150), _signed(false) {
 	check_exception(_min_grade, _min_exec);
 	++Form::nbr;
@@ -45,7 +45,7 @@ _signed(src.is_signed()) {
 }
 
 Form::Form(const int grade, const int exec)
-: _name((std::string)"form #" + ft_itoa(nbr)),
+: _name(format_name("Form #")),
 _min_grade(grade),
 _min_exec(exec),
 _signed(false) {
@@ -61,6 +61,16 @@ const Form &Form::operator=(const Form &src) {
 	//cannot return reference to temporary value
 	(void)src;
 	return *this;
+}
+
+std::string	Form::format_name(std::string const &src) {
+	std::stringstream	stream;
+	std::string			str;
+
+	stream << src << this->nbr;
+	str = stream.str();
+	std::cout << str << '\n';
+	return str;
 }
 
 std::string	Form::get_name(void) const {

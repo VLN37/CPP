@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 15:08:00 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/13 18:01:17 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/15 07:46:16 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FORM_HPP
 
 #include <iostream>
+#include <sstream>
 #include "Bureaucrat.hpp"
 
 class Bureaucrat;
@@ -34,6 +35,7 @@ class Form {
 		int			get_exec(void) const;
 		bool		is_signed(void) const;
 		void		check_exception(int grade, int exec);
+		std::string		format_name(std::string const &src);
 		void		beSigned(const Bureaucrat &congressman);
 
 

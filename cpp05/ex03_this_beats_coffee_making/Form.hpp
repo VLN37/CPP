@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 15:08:00 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/14 15:56:21 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/15 07:36:05 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 #include <iostream>
 #include <cstdlib>
+#include <sstream>
 #include "Bureaucrat.hpp"
-#include "ft_itoa.h"
 
 class Bureaucrat;
 
@@ -38,6 +38,7 @@ class Form {
 		void			check_exception(int grade, int exec);
 		void			beSigned(const Bureaucrat &congressman);
 		void			execute(Bureaucrat const &congressman) const;
+		std::string		format_name(std::string const &src);
 		virtual void	enact(const Form &form) const = 0;
 
 
