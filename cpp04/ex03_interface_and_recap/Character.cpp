@@ -1,14 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Character.cpp                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/12 01:53:34 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/12 10:53:52 by jofelipe         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// Copyright (c) 2022 João Rodriguez A.K.A. VLN37. All rights reserved.
 
 #include "Character.hpp"
 
@@ -20,7 +10,7 @@ Character::Character(std::string name) {
 	this->_name = name;
 }
 
-Character::Character(Character const &src) {
+Character::Character(Character const& src) {
 	*this = src;
 }
 
@@ -31,12 +21,12 @@ Character::~Character(void) {
 	}
 }
 
-Character const &Character::operator=(Character const &rhs) {
+Character const& Character::operator=(Character const& rhs) {
 	this->_name = rhs.getName();
 	return *this;
 }
 
-void	Character::equip(AMateria *m) {
+void	Character::equip(AMateria* m) {
 	int	i = 0;
 
 	while (this->book.spells[i] && i < 4)
@@ -54,11 +44,11 @@ void	Character::unequip(int idx) {
 		this->book.spells[idx] = NULL;
 }
 
-std::string const &Character::getName(void) const {
+std::string const& Character::getName(void) const {
 	return this->_name;
 }
 
-void	Character::use(int idx, ICharacter &target) {
+void	Character::use(int idx, ICharacter& target) {
 	if (idx < 0 || idx > 3)
 		return print_error("Inventory only has slots 0 - 3\n");
 	if (!this->book.spells[idx])

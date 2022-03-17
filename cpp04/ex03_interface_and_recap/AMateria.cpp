@@ -1,41 +1,32 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/12 01:08:53 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/12 11:00:05 by jofelipe         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// Copyright (c) 2022 João Rodriguez A.K.A. VLN37. All rights reserved.
 
+#include<string>
 #include "AMateria.hpp"
 
 AMateria::AMateria(void) {
 	this->_type = "hocus pocus";
 }
 
-AMateria::AMateria(AMateria const &src) {
+AMateria::AMateria(AMateria const& src) {
 	*this = src;
 }
 
 AMateria::~AMateria(void) {
-	return ;
+	return;
 }
 
-AMateria const &AMateria::operator=(AMateria const &rhs) {
+AMateria const& AMateria::operator=(AMateria const& rhs) {
 	(void)rhs;
 	return *this;
 }
 
-std::string const &AMateria::getType(void) const {
+std::string const& AMateria::getType(void) const {
 	return this->_type;
 }
 
-void AMateria::use(ICharacter &target) {
+void AMateria::use(const ICharacter& target) {
 	std::cout << "uses "
-			  << this->getType()
-			  << " on "
-			  << target.getName() << '\n';
+		<< this->getType()
+		<< " on "
+		<< target.getName() << '\n';
 }

@@ -1,14 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/11 03:53:21 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/14 16:56:42 by jofelipe         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// Copyright (c) 2022 João Rodriguez A.K.A. VLN37. All rights reserved.
 
 #include "Animal.hpp"
 
@@ -17,22 +7,22 @@ Animal::Animal(void) {
 	this->type = "Animal";
 }
 
-Animal::Animal(Animal &animal) {
+Animal::Animal(Animal& animal) {
 	std::cout << "Animal copy constructor called\n";
 	*this = animal;
 }
 
 Animal::~Animal(void) {
 	std::cout << "Animal destructor called\n";
-	return ;
+	return;
 }
 
-Animal	&Animal::operator=(Animal &rhs) {
+Animal& Animal::operator=(Animal& rhs) {
 	this->type = rhs.type;
 	return *this;
 }
 
-void	Animal::makeSound(void) const {
+void Animal::makeSound(void) const {
 	std::cout << "Err... hi?\n";
 }
 

@@ -1,14 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/09 00:22:40 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/12 04:24:46 by jofelipe         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// Copyright (c) 2022 João Rodriguez A.K.A. VLN37. All rights reserved.
 
 #include "ClapTrap.hpp"
 
@@ -33,7 +23,7 @@ ClapTrap::ClapTrap(std::string name) {
 	this->attack_damage = 20;
 }
 
-ClapTrap::ClapTrap(ClapTrap &src) {
+ClapTrap::ClapTrap(ClapTrap& src) {
 	std::cout << "copy ClapTrap constructor has been called\n";
 	*this = src;
 }
@@ -42,7 +32,7 @@ ClapTrap::~ClapTrap(void) {
 	std::cout << "ClapTrap destructor has been called\n";
 }
 
-ClapTrap	&ClapTrap::operator=(ClapTrap &rhs) {
+ClapTrap& ClapTrap::operator=(ClapTrap& rhs) {
 	this->_name = rhs.get_name();
 	this->hit_points = rhs.get_hit_pts();
 	this->energy_points = rhs.get_energy_pts();
@@ -68,7 +58,7 @@ int	ClapTrap::get_hit_pts(void) const {
 
 void	ClapTrap::print_error(std::string err) {
 	std::cout << err;
-	return ;
+	return;
 }
 
 void	ClapTrap::print_debug(void) const {
@@ -84,7 +74,7 @@ void	ClapTrap::print_debug(void) const {
 			  << this->attack_damage << "\n\n";
 }
 
-void	ClapTrap::attack(const std::string &target) {
+void	ClapTrap::attack(const std::string& target) {
 	if (this->hit_points < 1)
 		return print_error(this->get_name() + " cannot attack. I am dead\n");
 	if (this->energy_points < 1)
@@ -102,10 +92,10 @@ void	ClapTrap::attack(const std::string &target) {
 
 void	ClapTrap::takeDamage(unsigned int amount) {
 	if (this->hit_points < 1)
-		return print_error (this->_name + " is already dead\n");
+		return print_error(this->_name + " is already dead\n");
 	this->hit_points -= amount;
 	if (this->hit_points < 1)
-		return print_error (this->_name + " has died\n");
+		return print_error(this->_name + " has died\n");
 	std::cout << this->get_name()
 			  << " was attacked and now has "
 			  << this->hit_points

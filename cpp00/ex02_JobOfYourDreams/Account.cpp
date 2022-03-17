@@ -6,7 +6,7 @@
 /*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 22:32:02 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/04 19:51:04 by jofelipe         ###   ########.fr       */
+/*   Updated: 2022/03/16 21:56:17 by jofelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ Account::Account(void) {
 	this->_nbDeposits = 0;
 	this->_nbWithdrawals = 0;
 	std::cout << std::endl
-			  << "ACCOUNT CREATED" << std::endl
-			  << "Account ID: " << this->_accountIndex << std::endl
-			  << "Amount    : " << this->_amount << std::endl
-			  << std::endl;
+		<< "ACCOUNT CREATED" << std::endl
+		<< "Account ID: " << this->_accountIndex << std::endl
+		<< "Amount    : " << this->_amount << std::endl
+		<< std::endl;
 }
 
 Account::Account(int deposit) {
@@ -108,7 +108,7 @@ void Account::displayAccountsInfos(void) {
 			  << std::endl;
 }
 
-void Account::displayStatus(void) const{
+void Account::displayStatus(void) const {
 	std::cout << std::endl
 			  << "EXTRACT" << std::endl
 			  << "Account ID           : " << this->_accountIndex << std::endl

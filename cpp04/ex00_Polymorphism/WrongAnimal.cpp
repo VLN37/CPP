@@ -1,14 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/11 04:22:26 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/11 04:48:20 by jofelipe         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// Copyright (c) 2022 João Rodriguez A.K.A. VLN37. All rights reserved.
 
 #include "WrongAnimal.hpp"
 
@@ -17,17 +7,17 @@ WrongAnimal::WrongAnimal(void) {
 	this->type = "WrongAnimal";
 }
 
-WrongAnimal::WrongAnimal(WrongAnimal &animal) {
+WrongAnimal::WrongAnimal(WrongAnimal& animal) {
 	std::cout << "WrongAnimal copy constructor called\n";
 	*this = animal;
 }
 
 WrongAnimal::~WrongAnimal(void) {
 	std::cout << "WrongAnimal destructor called\n";
-	return ;
+	return;
 }
 
-void	WrongAnimal::operator=(WrongAnimal &rhs) {
+void	WrongAnimal::operator=(WrongAnimal& rhs) {
 	this->type = rhs.type;
 }
 

@@ -1,19 +1,10 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/09 04:45:46 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/10 03:49:54 by jofelipe         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// Copyright (c) 2022 João Rodriguez A.K.A. VLN37. All rights reserved.
 
 #ifndef FRAGTRAP_HPP
 # define FRAGTRAP_HPP
 
 #include <iostream>
+#include <string>
 #include "ClapTrap.hpp"
 
 class FragTrap : public ClapTrap {

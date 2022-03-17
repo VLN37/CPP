@@ -1,14 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   FragTrap.cpp                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/09 04:50:02 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/12 04:30:05 by jofelipe         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// Copyright (c) 2022 João Rodriguez A.K.A. VLN37. All rights reserved.
 
 #include "FragTrap.hpp"
 
@@ -28,7 +18,7 @@ FragTrap::FragTrap(std::string name) {
 	this->attack_damage = 30;
 }
 
-FragTrap::FragTrap(FragTrap &src) : ClapTrap(src) {
+FragTrap::FragTrap(FragTrap& src) : ClapTrap(src) {
 	std::cout << "copy FragTrap constructor has been called\n";
 	*this = src;
 }
@@ -37,7 +27,7 @@ FragTrap::~FragTrap(void) {
 	std::cout << "FragTrap destructor has been called\n";
 }
 
-FragTrap	&FragTrap::operator=(FragTrap const &rhs) {
+FragTrap& FragTrap::operator=(FragTrap const& rhs) {
 	this->_name = rhs._name;
 	this->hit_points = rhs.hit_points;
 	this->energy_points = rhs.energy_points;

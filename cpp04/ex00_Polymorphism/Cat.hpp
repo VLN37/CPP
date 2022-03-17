@@ -1,32 +1,22 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/11 03:31:10 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/14 16:55:12 by jofelipe         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// Copyright (c) 2022 João Rodriguez A.K.A. VLN37. All rights reserved.
 
 #ifndef CAT_HPP
 # define CAT_HPP
 
 #include <iostream>
+#include <string>
 #include "Animal.hpp"
 
 class Cat : public Animal {
+public:
+	Cat(void);
+	Cat(Cat& cat);
+	~Cat(void);
 
-	public:
-		Cat(void);
-		Cat(Cat &cat);
-		~Cat(void);
+	Cat& operator=(Cat& rhs);
 
-		Cat	&operator=(Cat &rhs);
-
-		virtual void	makeSound(void) const;
-		std::string		getType(void) const;
+	virtual void	makeSound(void) const;
+	std::string		getType(void) const;
 };
 
 #endif

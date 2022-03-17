@@ -1,14 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/13 06:52:33 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/15 07:27:18 by jofelipe         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// Copyright (c) 2022 João Rodriguez A.K.A. VLN37. All rights reserved.
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
@@ -20,7 +10,7 @@
 int main(void) {
 	std::cout << "this compiles\n";
 
-	Form *form = new RobotomyRequestForm;
+	Form* form = new RobotomyRequestForm;
 	Bureaucrat suplicy("Suplicy", 1);
 	Bureaucrat duval("Arthur Duval", 9000);
 
@@ -32,7 +22,7 @@ int main(void) {
 	suplicy.executeForm(*form);
 	delete form;
 
-	Form *ptr;
+	Form* ptr;
 	Intern flipflopsguy;
 
 	ptr = flipflopsguy.makeForm("robotomy request", "Alex deLarge");

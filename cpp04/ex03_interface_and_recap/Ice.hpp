@@ -1,14 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Ice.hpp                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/12 01:21:25 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/12 13:56:14 by jofelipe         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// Copyright (c) 2022 João Rodriguez A.K.A. VLN37. All rights reserved.
 
 #ifndef ICE_HPP
 # define ICE_HPP
@@ -19,15 +9,15 @@
 
 class Ice : public AMateria {
 
-	public:
-		Ice(void);
-		Ice(Ice const &src);
-		~Ice(void);
+public:
+  Ice(void);
+  Ice(Ice const& src);
+  ~Ice(void);
 
-		Ice const &operator=(Ice const &rhs);
+  Ice const& operator=(Ice const& rhs);
 
-		AMateria* clone(void) const;
-		void use(ICharacter& target);
+  AMateria* clone(void) const;
+  void use(const ICharacter& target);
 };
 
 #endif

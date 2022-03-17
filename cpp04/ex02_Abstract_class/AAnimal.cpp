@@ -1,14 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   AAnimal.cpp                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/11 03:53:21 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/14 17:06:39 by jofelipe         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// Copyright (c) 2022 João Rodriguez A.K.A. VLN37. All rights reserved.
 
 #include "AAnimal.hpp"
 
@@ -17,16 +7,16 @@ AAnimal::AAnimal(void) {
 	this->type = "Animal";
 }
 
-AAnimal::AAnimal(AAnimal &animal) {
+AAnimal::AAnimal(AAnimal& animal) {
 	std::cout << "Animal copy constructor called\n";
 	*this = animal;
 }
 
 AAnimal::~AAnimal(void) {
 	std::cout << "Animal destructor called\n";
-	return ;
+	return;
 }
 
-AAnimal	&AAnimal::operator=(AAnimal &rhs) {
+AAnimal& AAnimal::operator=(AAnimal const& rhs) {
 	this->type = rhs.type;
 }

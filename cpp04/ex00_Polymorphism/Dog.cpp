@@ -1,14 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/11 04:00:59 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/14 16:56:11 by jofelipe         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// Copyright (c) 2022 João Rodriguez A.K.A. VLN37. All rights reserved.
 
 #include "Dog.hpp"
 
@@ -17,17 +7,17 @@ Dog::Dog(void) {
 	this->type = "Dog";
 }
 
-Dog::Dog(Dog &dog) : Animal() {
+Dog::Dog(Dog& dog) : Animal() {
 	std::cout << "Dog copy constructor called\n";
 	*this = dog;
 }
 
 Dog::~Dog(void) {
 	std::cout << "Dog destructor called\n";
-	return ;
+	return;
 }
 
-Dog	&Dog::operator=(Dog &rhs) {
+Dog& Dog::operator=(Dog& rhs) {
 	this->type = rhs.type;
 	return *this;
 }

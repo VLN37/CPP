@@ -1,18 +1,7 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/01 23:07:41 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/03 15:57:21 by jofelipe         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// Copyright (c) 2022 João Rodriguez A.K.A. VLN37. All rights reserved.
 
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
-#include <limits.h>
 
 
 PhoneBook::PhoneBook(void) {
@@ -27,9 +16,9 @@ PhoneBook::~PhoneBook(void) {
 
 void PhoneBook::run(void) {
 	std::cout << "Hello ◕ ◡ ◕" << std::endl
-	          << "This is MyPhoneBook®" << std::endl
-	          << "Valid queries: ADD, SEARCH, EXIT" << std::endl
-	          << std::endl;
+		<< "This is MyPhoneBook®" << std::endl
+		<< "Valid queries: ADD, SEARCH, EXIT" << std::endl
+		<< std::endl;
 	while (PhoneBook::loop())
 		continue;
 	std::cout << "◕︵◕ Bye, bye ◕︵◕" << std::endl;
@@ -59,16 +48,16 @@ void PhoneBook::search(void) {
 	std::cout << std::endl;
 	while (++i < PhoneBook::no_contacts) {
 		std::cout << "| "
-		          << std::setw(10) << std::right
-		          << i + 1 << " | ";
+			<< std::setw(10) << std::right
+			<< i + 1 << " | ";
 		print_format(this->contacts[i].getname());
 		print_format(this->contacts[i].getsurname());
 		print_format(this->contacts[i].getnickname());
 		std::cout << std::endl;
 	}
 	std::cout << std::endl
-			  << "Enter desired contact ID (1 - 8)"
-			  << std::endl;
+		<< "Enter desired contact ID (1 - 8)"
+		<< std::endl;
 	std::cin >> i;
 	std::cout << std::endl;
 	if (std::cin.fail()) {
@@ -91,10 +80,10 @@ void PhoneBook::add(void) {
 
 	std::cout << std::endl;
 	if (!PhoneBook::check_token("First name of the contact:", &Contact::setname)
-	|| !PhoneBook::check_token("Last name of the contact:", &Contact::setsurname)
-	|| !PhoneBook::check_token("Nickname of the contact:", &Contact::setnickname)
-	|| !PhoneBook::check_phone("Phone # of the contact:", &Contact::setphone)
-	|| !PhoneBook::check_token("Contact's darkest secret:", &Contact::setsecret))
+		|| !PhoneBook::check_token("Last name of the contact:", &Contact::setsurname)
+		|| !PhoneBook::check_token("Nickname of the contact:", &Contact::setnickname)
+		|| !PhoneBook::check_phone("Phone # of the contact:", &Contact::setphone)
+		|| !PhoneBook::check_token("Contact's darkest secret:", &Contact::setsecret))
 		return (print_error("Invalid field"));
 	if (PhoneBook::iterator == 7)
 		iterator = 0;
@@ -102,9 +91,9 @@ void PhoneBook::add(void) {
 		iterator++;
 	PhoneBook::no_contacts++;
 	std::cout << std::endl
-	          << "CONTACT REGISTERED"
-	          << std::endl
-	          << std::endl;
+		<< "CONTACT REGISTERED"
+		<< std::endl
+		<< std::endl;
 }
 
 void PhoneBook::save(Contact contact, int iterator)
@@ -125,27 +114,27 @@ void PhoneBook::clear_contact(Contact contact) {
 	return;
 }
 
-void PhoneBook::instructions(void) const{
+void PhoneBook::instructions(void) const {
 	std::cerr << std::endl
-	          << "Error ¯\\_(ツ)_/¯" << std::endl
-	          << std::endl
-	          << "Valid input" << std::endl
-	          << "ADD: save a new contact" << std::endl
-	          << "SEARCH: displays contacts" << std::endl
-	          << "EXIT: quit MyPhoneBook" << std::endl
-	          << std::endl;
+		<< "Error ¯\\_(ツ)_/¯" << std::endl
+		<< std::endl
+		<< "Valid input" << std::endl
+		<< "ADD: save a new contact" << std::endl
+		<< "SEARCH: displays contacts" << std::endl
+		<< "EXIT: quit MyPhoneBook" << std::endl
+		<< std::endl;
 }
 
 void PhoneBook::print_error(std::string str) const {
 	std::cout << "Error: " << str << std::endl
-	          << std::endl;
+		<< std::endl;
 	return;
 }
 
 void PhoneBook::print_format(std::string str) const {
 	std::cout << std::setw(10) << std::right;
 	if (str.size() > 9)
-		std::cout << str.substr(0, 9) + (std::string) "."  << " | ";
+		std::cout << str.substr(0, 9) + (std::string)"." << " | ";
 	else
 		std::cout << str << " | ";
 }

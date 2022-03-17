@@ -1,14 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/11 03:57:23 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/14 17:01:49 by jofelipe         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// Copyright (c) 2022 João Rodriguez A.K.A. VLN37. All rights reserved.
 
 #include "Cat.hpp"
 
@@ -18,7 +8,7 @@ Cat::Cat(void) {
 	this->ideas = new Brain;
 }
 
-Cat::Cat(Cat &cat) : Animal() {
+Cat::Cat(Cat& cat) : Animal() {
 	std::cout << "Cat copy constructor called\n";
 	this->ideas = new Brain;
 	*this = cat;
@@ -29,13 +19,13 @@ Cat::~Cat(void) {
 	delete this->ideas;
 }
 
-Cat	&Cat::operator=(Cat const &rhs) {
+Cat& Cat::operator=(Cat const& rhs) {
 	this->type = rhs.type;
 	this->ideas = rhs.getBrain();
 	return *this;
 }
 
-Brain	*Cat::getBrain(void) const {
+Brain* Cat::getBrain(void) const {
 	return this->ideas;
 }
 

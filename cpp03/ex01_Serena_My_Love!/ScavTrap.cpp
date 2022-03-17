@@ -1,14 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/09 04:50:02 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/11 23:55:38 by jofelipe         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// Copyright (c) 2022 João Rodriguez A.K.A. VLN37. All rights reserved.
 
 #include "ScavTrap.hpp"
 
@@ -24,7 +14,7 @@ ScavTrap::ScavTrap(std::string name) {
 	_type.assign("ScavTrap");
 }
 
-ScavTrap::ScavTrap(ScavTrap &src) : ClapTrap(src) {
+ScavTrap::ScavTrap(ScavTrap& src) : ClapTrap(src) {
 	std::cout << "copy ScavTrap constructor has been called\n";
 	*this = src;
 }
@@ -33,7 +23,7 @@ ScavTrap::~ScavTrap(void) {
 	std::cout << "ScavTrap destructor has been called\n";
 }
 
-ScavTrap	&ScavTrap::operator=(ScavTrap const &rhs) {
+ScavTrap& ScavTrap::operator=(ScavTrap const& rhs) {
 	this->name = rhs.name;
 	this->hit_points = rhs.hit_points;
 	this->energy_points = rhs.energy_points;

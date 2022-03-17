@@ -1,14 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Cure.hpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/12 08:16:29 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/12 13:56:12 by jofelipe         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// Copyright (c) 2022 João Rodriguez A.K.A. VLN37. All rights reserved.
 
 #ifndef CURE_HPP
 # define CURE_HPP
@@ -18,16 +8,15 @@
 #include "ICharacter.hpp"
 
 class Cure : public AMateria {
+public:
+	Cure(void);
+	Cure(Cure const& src);
+	~Cure(void);
 
-	public:
-		Cure(void);
-		Cure(Cure const &src);
-		~Cure(void);
+	Cure const& operator=(Cure const& rhs);
 
-		Cure const &operator=(Cure const &rhs);
-
-		AMateria* clone(void) const;
-		virtual void use(ICharacter& target);
+	AMateria* clone(void) const;
+	virtual void use(ICharacter const& const target);
 };
 
 

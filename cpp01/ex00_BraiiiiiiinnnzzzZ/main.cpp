@@ -1,20 +1,10 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/03 17:20:32 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/05 01:26:54 by jofelipe         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// Copyright (c) 2022 João Rodriguez A.K.A. VLN37. All rights reserved.
 
 #include "Zombie.hpp"
 
 int	main(void) {
 	Zombie stackzombie("bro");
-	Zombie *heapzombie;
+	Zombie* heapzombie;
 
 	heapzombie = stackzombie.newZombie("joe");
 	stackzombie.announce();

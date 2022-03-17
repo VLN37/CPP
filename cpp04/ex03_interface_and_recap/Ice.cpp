@@ -1,14 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Ice.cpp                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/12 01:26:05 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/12 13:55:14 by jofelipe         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// Copyright (c) 2022 João Rodriguez A.K.A. VLN37. All rights reserved.
 
 #include "Ice.hpp"
 #include "AMateria.hpp"
@@ -17,29 +7,29 @@ Ice::Ice(void) {
 	this->_type = "ice";
 }
 
-Ice::Ice(Ice const &src) : AMateria(src) {
+Ice::Ice(Ice const& src) : AMateria(src) {
 	*this = src;
 }
 
 Ice::~Ice(void) {
-	return ;
+	return;
 }
 
 //destructor does not deallocate this you have to do it manually
-AMateria *Ice::clone(void) const {
-	Ice *tmp = new Ice;
+AMateria* Ice::clone(void) const {
+	Ice* tmp = new Ice;
 	return tmp;
 }
 
-Ice const &Ice::operator=(Ice const &rhs) {
-	(void)rhs; //TODO
+Ice const& Ice::operator=(Ice const& rhs) {
+	(void)rhs; //TODO(me)
 	return *this;
 }
 
-void	Ice::use(ICharacter &target) {
+void	Ice::use(const ICharacter& target) {
 	std::cout << "casts "
-			  << this->getType()
-			  << " on "
-			  << target.getName() << '\n';
+		<< this->getType()
+		<< " on "
+		<< target.getName() << '\n';
 }
 

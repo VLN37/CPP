@@ -1,26 +1,16 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   MateriaSource.cpp                                  :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/12 03:04:50 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/12 10:51:43 by jofelipe         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// Copyright (c) 2022 João Rodriguez A.K.A. VLN37. All rights reserved.
 
 #include "MateriaSource.hpp"
 
 MateriaSource::MateriaSource(void) {
-	for(int i = 0; i < 4; i++)
+	for (int i = 0; i < 4; i++)
 		this->spells[i] = NULL;
-	for(int i = 0; i < 100; i++)
+	for (int i = 0; i < 100; i++)
 		this->known_spells[i] = NULL;
 	this->index = 0;
 }
 
-MateriaSource::MateriaSource(MateriaSource const &src) {
+MateriaSource::MateriaSource(MateriaSource const& src) {
 	*this = src;
 }
 
@@ -30,8 +20,8 @@ MateriaSource::~MateriaSource(void) {
 		delete this->known_spells[i];
 }
 
-MateriaSource const &MateriaSource::operator=(MateriaSource const &rhs) {
-	for(int i = 0; i < 4; i++)
+MateriaSource const& MateriaSource::operator=(MateriaSource const& rhs) {
+	for (int i = 0; i < 4; i++)
 		if (rhs.spells[i])
 			this->spells[i] = rhs.spells[i]->clone();
 	int i = -1;
@@ -40,7 +30,7 @@ MateriaSource const &MateriaSource::operator=(MateriaSource const &rhs) {
 	return *this;
 }
 
-AMateria *MateriaSource::createMateria(std::string const & type) {
+AMateria* MateriaSource::createMateria(std::string const& type) {
 	for (int i = 0; i < 4; i++) {
 		if (this->spells[i] && !type.compare(this->spells[i]->getType())) {
 			std::cout << "Materia succesfully created\n";
@@ -51,21 +41,21 @@ AMateria *MateriaSource::createMateria(std::string const & type) {
 	return NULL;
 }
 
-void MateriaSource::learnMateria(AMateria *matptr) {
+void MateriaSource::learnMateria(AMateria* matptr) {
 	for (int i = 0; i < 4; i++) {
 		if (!this->spells[i]) {
-			std::cout <<  matptr->getType()
+			std::cout << matptr->getType()
 					  << " Materia acquired!\n";
 			this->spells[i] = matptr;
 			this->known_spells[index++] = this->spells[i];
-			return ;
+			return;
 		}
 	}
 	delete matptr;
 	std::cout << "Cannot learn materia. This Materia Source is full\n";
 }
 
-AMateria	*MateriaSource::find(std::string const type) {
+AMateria* MateriaSource::find(std::string const type) {
 	int i = -1;
 	while (this->known_spells[++i])
 		if (!type.compare(this->known_spells[i]->getType()))
@@ -73,10 +63,10 @@ AMateria	*MateriaSource::find(std::string const type) {
 	return NULL;
 }
 
-void	MateriaSource::store(AMateria *m) {
+void	MateriaSource::store(AMateria* m) {
 	int i = -1;
 	while (this->known_spells[++i])
 		if (known_spells[i] == m)
-			return ;
+			return;
 	this->known_spells[i] = m;
 }

@@ -1,30 +1,20 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/11 06:38:10 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/11 06:57:04 by jofelipe         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// Copyright (c) 2022 João Rodriguez A.K.A. VLN37. All rights reserved.
 
 #ifndef BRAIN_HPP
 # define BRAIN_HPP
 
 #include <iostream>
+#include <string>
 
 class Brain {
+public:
+	Brain(void);
+	Brain(Brain& brain);
+	~Brain(void);
 
-	public:
-		Brain(void);
-		Brain(Brain &brain);
-		~Brain(void);
+	Brain& operator=(Brain const& rhs);
 
-		Brain	&operator=(Brain const &rhs);
-
-		std::string	ideas[100];
+	std::string	ideas[100];
 };
 
 #endif

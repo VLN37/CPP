@@ -1,34 +1,24 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   AAnimal.hpp                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/11 03:19:32 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/14 17:08:23 by jofelipe         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// Copyright (c) 2022 João Rodriguez A.K.A. VLN37. All rights reserved.
 
 #ifndef AANIMAL_HPP
 # define AANIMAL_HPP
 
 #include <iostream>
+#include <string>
 
 class AAnimal {
+public:
+	AAnimal(void);
+	AAnimal(AAnimal& animal);
+	virtual ~AAnimal(void);
 
-	public:
-		AAnimal(void);
-		AAnimal(AAnimal &animal);
-		virtual ~AAnimal(void);
+	AAnimal& operator=(AAnimal const& rhs);
 
-		AAnimal	&operator=(AAnimal &rhs);
+	virtual void		makeSound(void) const = 0;
+	virtual std::string	getType(void) const = 0;
 
-		virtual void		makeSound(void) const = 0;
-		virtual std::string	getType(void) const = 0;
-
-	protected:
-		std::string	type;
+protected:
+	std::string	type;
 };
 
 #endif

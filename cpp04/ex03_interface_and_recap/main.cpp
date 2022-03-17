@@ -1,14 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/12 04:54:37 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/12 10:59:42 by jofelipe         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// Copyright (c) 2022 João Rodriguez A.K.A. VLN37. All rights reserved.
 
 #include "ICharacter.hpp"
 #include "Character.hpp"
@@ -19,9 +9,9 @@
 #include "Cure.hpp"
 
 int	main(void) {
-	ICharacter		*me = new Character("me");
-	IMateriaSource	*src = new MateriaSource;
-	AMateria		*tmp;
+	ICharacter*		me = new Character("me");
+	IMateriaSource*	src = new MateriaSource;
+	AMateria*		tmp;
 
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
@@ -31,7 +21,7 @@ int	main(void) {
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
 
-	ICharacter *bob = new Character("bob");
+	ICharacter* bob = new Character("bob");
 
 	me->use(0, *bob);
 	me->use(1, *bob);

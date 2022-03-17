@@ -1,14 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   WrongCat.cpp                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/11 04:21:25 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/11 04:49:10 by jofelipe         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// Copyright (c) 2022 João Rodriguez A.K.A. VLN37. All rights reserved.
 
 #include "WrongCat.hpp"
 
@@ -17,17 +7,17 @@ WrongCat::WrongCat(void) {
 	this->type = "WrongCat";
 }
 
-WrongCat::WrongCat(WrongCat &cat) : WrongAnimal() {
+WrongCat::WrongCat(WrongCat& cat) : WrongAnimal() {
 	std::cout << "WrongCat copy constructor called\n";
 	*this = cat;
 }
 
 WrongCat::~WrongCat(void) {
 	std::cout << "WrongCat destructor called\n";
-	return ;
+	return;
 }
 
-void	WrongCat::operator=(WrongCat &rhs) {
+void	WrongCat::operator=(WrongCat& rhs) {
 	this->type = rhs.type;
 }
 

@@ -1,19 +1,10 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/12 03:01:45 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/12 03:02:29 by jofelipe         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// Copyright (c) 2022 João Rodriguez A.K.A. VLN37. All rights reserved.
 
 #ifndef IMATERIASOURCE_HPP
 # define IMATERIASOURCE_HPP
 
 #include <iostream>
+#include <string>
 #include "AMateria.hpp"
 
 class IMateriaSource

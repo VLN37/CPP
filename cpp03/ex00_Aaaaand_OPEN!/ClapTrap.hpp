@@ -1,19 +1,10 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/09 00:14:13 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/10 01:48:59 by jofelipe         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// Copyright (c) 2022 João Rodriguez A.K.A. VLN37. All rights reserved.
 
 #ifndef CLAPTRAP_HPP
 # define CLAPTRAP_HPP
 
 #include <iostream>
+#include <string>
 
 class ClapTrap {
 
@@ -23,7 +14,7 @@ class ClapTrap {
 		ClapTrap(ClapTrap &src);
 		~ClapTrap(void);
 
-		ClapTrap	&operator=(ClapTrap &rhs);
+		ClapTrap	&operator=(ClapTrap const &rhs);
 
 		void		attack(const std::string &target);
 		void		takeDamage(unsigned int amount);

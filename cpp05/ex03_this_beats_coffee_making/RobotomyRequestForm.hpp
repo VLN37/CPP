@@ -1,14 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/14 07:42:59 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/15 08:03:49 by jofelipe         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// Copyright (c) 2022 João Rodriguez A.K.A. VLN37. All rights reserved.
 
 #ifndef ROBOTOMYREQUESTFORM_HPP
 # define ROBOTOMYREQUESTFORM_HPP
@@ -18,25 +8,25 @@
 
 class RobotomyRequestForm : public Form {
 
-	public:
-		static int req_sign;
-		static int req_exec;
+public:
+	static int req_sign;
+	static int req_exec;
 
-		RobotomyRequestForm(void);
-		RobotomyRequestForm(std::string target);
-		RobotomyRequestForm(const RobotomyRequestForm &src);
-		~RobotomyRequestForm(void);
+	RobotomyRequestForm(void);
+	RobotomyRequestForm(std::string target);
+	RobotomyRequestForm(const RobotomyRequestForm& src);
+	~RobotomyRequestForm(void);
 
-		const RobotomyRequestForm &operator=(const RobotomyRequestForm &rhs);
+	const RobotomyRequestForm& operator=(const RobotomyRequestForm& rhs);
 
-		virtual void enact(const Form &form) const;
+	virtual void enact(const Form& form) const;
 
-	private:
-		const std::string	_name;
-		const int			_min_grade;
-		const int			_min_exec;
-		std::string			_target;
-		bool				_signed;
+private:
+	const std::string	_name;
+	const int			_min_grade;
+	const int			_min_exec;
+	std::string			_target;
+	bool				_signed;
 };
 
 #endif
