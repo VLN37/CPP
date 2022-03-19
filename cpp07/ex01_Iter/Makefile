@@ -9,10 +9,10 @@ INC		=	iter.hpp \
 OBJ		= $(SRC:%.cpp=$(OBJDIR)/%.o)
 OBJDIR	= obj
 
-$(NAME):	$(OBJDIR) $(OBJ) $(INC)
+$(NAME):	$(OBJDIR) $(OBJ)
 		$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-$(OBJDIR)/%.o:	%.cpp
+$(OBJDIR)/%.o:	%.cpp $(INC)
 		$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

@@ -12,7 +12,7 @@ OBJDIR	= obj
 $(NAME):	$(OBJDIR) $(OBJ) $(INC)
 		$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-$(OBJDIR)/%.o:	%.cpp
+$(OBJDIR)/%.o:	%.cpp $(INC)
 		$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
