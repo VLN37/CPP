@@ -8,15 +8,15 @@ int main(void) {
 	for (int i = 0; i < 22; i++)
 		vec.push_back(i);
 	print_vector(vec);
-	int nbr = easyfind(vec, 21);
-	std::cout << "I FOUND THIS: " << nbr << '\n';
+	std::vector<int>::iterator nbr = easyfind(vec, 21);
+	std::cout << "I FOUND THIS: " << *nbr << '\n';
 	try {
 		nbr = easyfind(vec, 25);
+		std::cout << "I FOUND THIS: " << *nbr << '\n';
+		std::cout << "LAST IS     : " << *vec.end() << '\n';
 	}
-	catch (std::exception &e) {
+	catch (std::exception& e) {
 		std::cout << e.what();
 	}
-	std::cout << "I FOUND THIS: " << nbr << '\n';
-	std::cout << "LAST IS     : " << *(vec.end()) << '\n';
-
+	return 0;
 }

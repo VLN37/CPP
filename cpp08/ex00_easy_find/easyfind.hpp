@@ -6,6 +6,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <exception>
 
 template<typename T>
 void out(T var) {
@@ -18,9 +19,13 @@ void print_vector(std::vector<T> vec) {
 	std::cout << '\n';
 }
 
-template <typename T>
-T const& easyfind(std::vector<T> vec, int i) {
-	return *std::find(vec.begin(), vec.end(), i);
+template<typename T>
+typename std::vector<T>::iterator easyfind(std::vector<T> vec, int i) {
+	typename std::vector<T>::iterator it;
+	it = std::find(vec.begin(), vec.end(), i);
+	if (it == vec.end())
+		throw(std::out_of_range("Element not found in vector\n"));
+	return it;
 }
 
 #endif

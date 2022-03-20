@@ -5,7 +5,6 @@ NAME 	= templates
 SRC		=	main.cpp \
 
 INC		=	easyfind.hpp \
-			easyfind.tpp \
 
 OBJ		= $(SRC:%.cpp=$(OBJDIR)/%.o)
 OBJDIR	= obj
