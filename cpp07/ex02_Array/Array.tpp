@@ -52,7 +52,8 @@ void Array<T>::print(void) const {
 
 template<typename T>
 T& Array<T>::operator[](int i) {
-	if (i < 0 || static_cast<unsigned int>(i) > this->size() - 1)
+	if (i < 0 || this->_size == 0
+	|| static_cast<unsigned int>(i) > this->size() - 1)
 		throw(Array<T>::IndexOutOfBounds());
 	std::cout << "T subscript operator called\n";
 	return this->_array[i];
@@ -77,5 +78,5 @@ Array<T> const& Array<T>::operator=(Array<T> const& rhs) {
 
 template<typename T>
 const char* Array<T>::IndexOutOfBounds::what(void) const throw() {
-	return ("Provided index is out of bounds\n");
+	return ("Provided index is out of bounds");
 }

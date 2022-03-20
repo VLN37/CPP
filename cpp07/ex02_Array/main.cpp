@@ -4,10 +4,10 @@
 
 int main(void) {
 	std::cout << "this compiles\n";
-	Array<int> arr1(static_cast<unsigned int>(3));
-	Array<int> arr2(static_cast<unsigned int>(3));
+	Array<int> arr1(3);
+	Array<int> arr2(3);
 
-	Array<float>arrfloat(static_cast<unsigned int>(5));
+	Array<float>arrfloat(3);
 	arrfloat.print();
 
 	int* a = new int();
@@ -33,6 +33,15 @@ int main(void) {
 		arr1[42] = arr1[0];
 	}
 	catch (Array<int>::IndexOutOfBounds& e) {
+		std::cout << e.what() << '\n';
+		std::cout << "Ha. Ha. Nice try.\n";
+	}
+	Array<char> arr4(static_cast<unsigned int>(0));
+	try {
+		arr1[0] = arr4[0];
+	}
+	catch (Array<char>::IndexOutOfBounds& e) {
+		std::cout << e.what() << '\n';
 		std::cout << "Ha. Ha. Nice try.\n";
 	}
 	delete a;
