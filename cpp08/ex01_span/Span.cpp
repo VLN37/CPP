@@ -84,5 +84,7 @@ void Span::print(void) const {
 	std::for_each(_list.begin(), _list.end(), out);
 	std::cout << "\n\n";
 	std::cout << "Cur_size: " << this->_list.size() << '\n'
-			  << "Max_size: " << this->_max_size << '\n';
+			  << "Max_size: " << this->_max_size << '\n'
+			  << "Min_span: " << this->shortestSpan() << "\n"
+			  << "Max_span: " << this->longestSpan() << "\n\n";
 }
