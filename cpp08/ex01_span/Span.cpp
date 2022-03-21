@@ -11,13 +11,18 @@ Span::Span(unsigned int N) {
 }
 
 Span::Span(Span const& src) {
+	std::cout << "Copy constructor called\n";
 	*this = src;
 }
 
 Span::~Span(void) { }
 
 Span const& Span::operator=(Span const& rhs) {
+	std::cout << "Assignment operator caled\n";
 	this->_list = rhs.getList();
+	this->_max_size = rhs.getSize();
+	this->_max_span = rhs.longestSpan();
+	this->_min_span = rhs.shortestSpan();
 	return *this;
 }
 
@@ -73,11 +78,33 @@ void Span::out(int n) {
 }
 
 int Span::shortestSpan(void) const {
-	return this->_min_span;
+	try {
+		if (this->_list.size() < 2) {
+			throw(std::logic_error(EXC_SPAN));
+		}
+		return this->_min_span;
+	}
+	catch (std::exception& e) {
+		std::cout << e.what();
+		return 0;
+	}
 }
 
 int Span::longestSpan(void) const {
-	return this->_max_span;
+	try {
+		if (this->_list.size() < 2) {
+			throw(std::logic_error(EXC_SPAN));
+		}
+		return this->_max_span;
+	}
+	catch (std::exception& e) {
+		std::cout << e.what();
+		return 0;
+	}
+}
+
+size_t Span::getSize(void) const {
+	return this->_max_size;
 }
 
 void Span::print(void) const {

@@ -10,6 +10,7 @@
 
 #define EXC_LENGTH "Exception: This list is already at maximum capacity\n"
 #define EXC_RANGE "Exception: Range start is lesser than end\n"
+#define EXC_SPAN "Exception: There is no span with a list size lesser than 2\n"
 
 class Span {
 public:
@@ -25,6 +26,7 @@ public:
 	void		addRange(int first, int last);
 	int			shortestSpan(void) const;
 	int			longestSpan(void) const;
+	size_t		getSize(void) const;
 
 private:
 	Span(void);

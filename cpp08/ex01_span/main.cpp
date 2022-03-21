@@ -21,7 +21,9 @@ int main(void) {
 	{
 		Span span(10);
 
+		span.shortestSpan();
 		span.addNumber(10);
+		span.longestSpan();
 		span.addNumber(60);
 		span.addNumber(560);
 		span.print();
@@ -37,5 +39,8 @@ int main(void) {
 		span.addRange(500, 502);
 		span.print();
 		span.addRange(502, 500);
+
+		Span spancpy(span);
+		spancpy.print();
 	}
 }
