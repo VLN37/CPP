@@ -60,7 +60,8 @@ void Span::addNumber(int n) {
 }
 /**************************************************************************** */
 
-void Span::addRange(int first, int last) {
+
+void Span::addNumber(int first, int last) {
 	try {
 		if (first > last)
 			throw(std::range_error(EXC_RANGE));

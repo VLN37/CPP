@@ -23,7 +23,7 @@ public:
 	Span const&	operator=(Span const& rhs);
 	void		print(void) const;
 	void		addNumber(int n);
-	void		addRange(int first, int last);
+	void		addNumber(int first, int last);
 	int			shortestSpan(void) const;
 	int			longestSpan(void) const;
 	size_t		getSize(void) const;

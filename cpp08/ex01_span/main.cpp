@@ -36,9 +36,9 @@ int main(void) {
 		}
 		span.print();
 
-		span.addRange(500, 502);
+		span.addNumber(500, 502);
 		span.print();
-		span.addRange(502, 500);
+		span.addNumber(502, 500);
 
 		Span spancpy(span);
 		spancpy.print();
