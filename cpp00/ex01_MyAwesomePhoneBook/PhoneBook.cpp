@@ -79,21 +79,22 @@ void PhoneBook::add(void) {
 	Contact cont;
 
 	std::cout << std::endl;
-	if (!PhoneBook::check_token("First name of the contact:", &Contact::setname)
-		|| !PhoneBook::check_token("Last name of the contact:", &Contact::setsurname)
-		|| !PhoneBook::check_token("Nickname of the contact:", &Contact::setnickname)
-		|| !PhoneBook::check_phone("Phone # of the contact:", &Contact::setphone)
-		|| !PhoneBook::check_token("Contact's darkest secret:", &Contact::setsecret))
+	if (!PhoneBook::check_token("First name:", &Contact::setname)
+	|| !PhoneBook::check_token("Last name:", &Contact::setsurname)
+	|| !PhoneBook::check_token("Nickname:", &Contact::setnickname)
+	|| !PhoneBook::check_phone("Phone #:", &Contact::setphone)
+	|| !PhoneBook::check_token("Darkest secret:", &Contact::setsecret))
 		return (print_error("Invalid field"));
 	if (PhoneBook::iterator == 7)
 		iterator = 0;
 	else
 		iterator++;
-	PhoneBook::no_contacts++;
+	if (this->no_contacts < 7)
+		PhoneBook::no_contacts++;
 	std::cout << std::endl
-		<< "CONTACT REGISTERED"
-		<< std::endl
-		<< std::endl;
+			  << "CONTACT REGISTERED"
+			  << std::endl
+			  << std::endl;
 }
 
 void PhoneBook::save(Contact contact, int iterator)
@@ -116,13 +117,13 @@ void PhoneBook::clear_contact(Contact contact) {
 
 void PhoneBook::instructions(void) const {
 	std::cerr << std::endl
-		<< "Error ¯\\_(ツ)_/¯" << std::endl
-		<< std::endl
-		<< "Valid input" << std::endl
-		<< "ADD: save a new contact" << std::endl
-		<< "SEARCH: displays contacts" << std::endl
-		<< "EXIT: quit MyPhoneBook" << std::endl
-		<< std::endl;
+			  << "Error ¯\\_(ツ)_/¯" << std::endl
+			  << std::endl
+			  << "Valid input" << std::endl
+			  << "ADD: save a new contact" << std::endl
+			  << "SEARCH: displays contacts" << std::endl
+			  << "EXIT: quit MyPhoneBook" << std::endl
+			  << std::endl;
 }
 
 void PhoneBook::print_error(std::string str) const {

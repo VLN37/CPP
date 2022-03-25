@@ -1,5 +1,5 @@
 CC 		= c++
-CFLAGS 	= -Wall -Wextra -Werror -std=c++98 -pedantic
+CFLAGS 	= -g -Wall -Wextra -Werror -std=c++98 -pedantic
 NAME 	= megaphone
 SRC 	= megaphone.cpp
 INC		=
