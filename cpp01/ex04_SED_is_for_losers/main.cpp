@@ -1,23 +1,13 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/04 12:21:20 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/05 22:01:16 by jofelipe         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// Copyright (c) 2022 João Rodriguez A.K.A. VLN37. All rights reserved.
 
 #include "replace.h"
 
-bool	print_error(const char *err) {
+bool	print_error(const char* err) {
 	std::cerr << err << std::endl;
 	return false;
 }
 
-bool	validation(int argc, char **argv) {
+bool	validation(int argc, char** argv) {
 	std::fstream	file;
 	std::string		str;
 
@@ -36,7 +26,7 @@ bool	validation(int argc, char **argv) {
 	return true;
 }
 
-void	get_file_contents(std::string filename, std::string *filecontent) {
+void	get_file_contents(std::string filename, std::string* filecontent) {
 	std::string		buffer;
 	std::ifstream	infile;
 
@@ -56,16 +46,16 @@ void	set_file_contents(std::string filename, std::string content) {
 	outfile.close();
 }
 
-void replace(std::string &str, std::string rem, std::string rep) {
+void replace(std::string& str, std::string rem, std::string rep) {
 	std::string	tmp;
 	std::string rest;
 	size_t		i;
 
-	if (rem.empty() && rep.empty())
-		return ;
+	if (rem.empty() || rep.empty())
+		return;
 	i = str.find(rem);
 	if (i == str.npos)
-		return ;
+		return;
 	rest.assign(str);
 	str.clear();
 	while (i != str.npos) {
@@ -79,7 +69,7 @@ void replace(std::string &str, std::string rem, std::string rep) {
 }
 
 
-int	main(int argc, char **argv) {
+int	main(int argc, char** argv) {
 	if (!validation(argc, argv))
 		return EXIT_FAILURE;
 

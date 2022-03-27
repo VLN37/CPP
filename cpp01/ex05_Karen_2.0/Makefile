@@ -1,8 +1,8 @@
 CC 		= c++
 CFLAGS 	= -Wall -Wextra -Werror -std=c++98 -pedantic
-NAME 	= karen
-SRC		= main.cpp Karen.cpp
-INC		= Karen.hpp
+NAME 	= harl
+SRC		= main.cpp Harl.cpp
+INC		= Harl.hpp
 OBJ		= $(SRC:%.cpp=$(OBJDIR)/%.o)
 OBJDIR	= obj
 

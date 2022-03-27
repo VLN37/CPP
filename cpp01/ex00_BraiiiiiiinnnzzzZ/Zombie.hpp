@@ -1,14 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/03 17:01:44 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/16 21:58:14 by jofelipe         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// Copyright (c) 2022 João Rodriguez A.K.A. VLN37. All rights reserved.
 
 #ifndef ZOMBIE_HPP
 # define ZOMBIE_HPP
@@ -21,12 +11,16 @@ public:
 	Zombie(std::string name);
 	~Zombie(void);
 
+	//can be called as Zombie::randomChump()
+	static void	randomChump(std::string name);
 	Zombie* newZombie(std::string name);
-	void	randomChump(std::string name);
 	void	announce(void);
 
 private:
 	std::string name;
 };
+
+//non member function outside namespace
+void	randomChump(std::string name);
 
 #endif

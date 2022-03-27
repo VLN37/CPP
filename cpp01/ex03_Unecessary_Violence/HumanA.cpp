@@ -1,24 +1,13 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/03 21:07:19 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/04 01:52:06 by jofelipe         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// Copyright (c) 2022 João Rodriguez A.K.A. VLN37. All rights reserved.
 
 #include "HumanA.hpp"
 
-HumanA::HumanA(std::string name, Weapon &weapon) :_weapon(weapon) {
-	this->_weapon = weapon;
+HumanA::HumanA(std::string name, Weapon const& weapon) :_weapon(weapon) {
 	this->_name.assign(name);
 }
 
 HumanA::~HumanA(void) {
-	return ;
+	return;
 }
 
 

@@ -1,14 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/03 21:00:28 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/03 23:24:03 by jofelipe         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// Copyright (c) 2022 João Rodriguez A.K.A. VLN37. All rights reserved.
 
 #include "Weapon.hpp"
 
@@ -21,10 +11,10 @@ Weapon::Weapon(std::string weapon_name) {
 }
 
 Weapon::~Weapon(void) {
-	return ;
+	return;
 }
 
-const std::string &Weapon::getType(void) const {
+const std::string& Weapon::getType(void) const {
 	return (this->_type);
 }
 

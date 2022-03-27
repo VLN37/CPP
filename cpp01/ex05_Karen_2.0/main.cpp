@@ -1,22 +1,17 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/04 23:32:32 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/05 00:42:30 by jofelipe         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// Copyright (c) 2022 João Rodriguez A.K.A. VLN37. All rights reserved.
 
-#include "Karen.hpp"
+#include "Harl.hpp"
 
 int	main(void) {
-	Karen karen;
+	Harl harl;
 
-	karen.complain("DEBUG");
-	karen.complain("INFO");
-	karen.complain("WARNING");
-	karen.complain("ERROR");
+	std::cout << "\n------------------------------------------------------\n\n";
+	harl.complain("DEBUG");
+	std::cout << "\n------------------------------------------------------\n\n";
+	harl.complain("INFO");
+	std::cout << "\n------------------------------------------------------\n\n";
+	harl.complain("WARNING");
+	std::cout << "\n------------------------------------------------------\n\n";
+	harl.complain("ERROR");
+	std::cout << "\n------------------------------------------------------\n\n";
 }

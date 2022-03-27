@@ -1,7 +1,7 @@
 CC 		= c++
 CFLAGS 	= -Wall -Wextra -Werror -std=c++98 -pedantic
 NAME 	= thisisbrain
-SRC 	= main.cppp
+SRC 	= main.cpp
 INC		=
 OBJ		= $(SRC:%.cpp=$(OBJDIR)/%.o)
 OBJDIR	= obj

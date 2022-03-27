@@ -1,14 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   HumanB.cpp                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/03 21:21:45 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/04 01:51:18 by jofelipe         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// Copyright (c) 2022 João Rodriguez A.K.A. VLN37. All rights reserved.
 
 #include "HumanB.hpp"
 
@@ -21,10 +11,10 @@ HumanB::HumanB(std::string name) {
 }
 
 HumanB::~HumanB(void) {
-	return ;
+	return;
 }
 
-void HumanB::setWeapon(Weapon &weapon) {
+void HumanB::setWeapon(Weapon& weapon) {
 	this->_weapon = &weapon;
 }
 

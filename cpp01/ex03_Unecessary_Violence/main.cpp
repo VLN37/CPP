@@ -1,14 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jofelipe <jofelipe@student.42sp.org.br>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/03 21:13:41 by jofelipe          #+#    #+#             */
-/*   Updated: 2022/03/04 00:37:04 by jofelipe         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// Copyright (c) 2022 João Rodriguez A.K.A. VLN37. All rights reserved.
 
 #include "Weapon.hpp"
 #include "HumanA.hpp"
@@ -23,6 +13,7 @@ int main()
 		club.setType("some other type of club");
 		bob.attack();
 	}
+
 	{
 		Weapon club = Weapon("crude spiked club");
 		HumanB jim("Jim");
@@ -31,5 +22,5 @@ int main()
 		club.setType("some other type of club");
 		jim.attack();
 	}
-return 0;
+	return 0;
 }

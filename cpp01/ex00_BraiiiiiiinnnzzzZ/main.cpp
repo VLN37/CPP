@@ -10,6 +10,8 @@ int	main(void) {
 	stackzombie.announce();
 	heapzombie->announce();
 	stackzombie.randomChump("billy");
+	Zombie::randomChump("Chump");
+	randomChump("Chump");
 
 	delete heapzombie;
 }

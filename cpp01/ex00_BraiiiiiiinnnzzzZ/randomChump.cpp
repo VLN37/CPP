@@ -6,3 +6,8 @@ void	Zombie::randomChump(std::string name) {
 	Zombie chump(name);
 	chump.announce();
 }
+
+void	randomChump(std::string name) {
+	Zombie chump(name);
+	chump.announce();
+}
