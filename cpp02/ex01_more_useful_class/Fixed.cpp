@@ -49,7 +49,7 @@ int		Fixed::getRawBits(void) const {
 }
 
 float		Fixed::toFloat(void) const {
-	return (float)this->_rawBits / (1 << Fixed::_bits);
+	return static_cast<float>(this->_rawBits) / (1 << Fixed::_bits);
 }
 
 int		Fixed::toInt(void) const {

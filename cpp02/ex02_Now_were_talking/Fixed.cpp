@@ -17,6 +17,7 @@ Fixed::Fixed(const Fixed& src) {
 Fixed::Fixed(const int value) {
 	// std::cout << "Int variable constructor called" << std::endl;
 	this->_rawBits = value << Fixed::_bits;
+	// this->_rawBits = value;
 }
 
 Fixed::Fixed(const float value) {
@@ -120,10 +121,12 @@ Fixed const& Fixed::max(Fixed& var1, Fixed& var2) {
 
 void	Fixed::setRawBits(int const raw) {
 	this->_rawBits = raw << Fixed::_bits;
+	// this->_rawBits = raw;
 }
 
 int		Fixed::getRawBits(void) const {
-	return this->_rawBits >> Fixed::_bits;
+	return this->_rawBits;
+	// return this->_rawBits >> Fixed::_bits;
 }
 
 float		Fixed::toFloat(void) const {
