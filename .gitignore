@@ -4,6 +4,7 @@
 *shrubbery
 phone
 obj
+algo
 megaphone
 thisisbrain
 zombie
@@ -11,12 +12,17 @@ bank
 casting
 fragtrap
 violence
+harlFilter
+karenFilter
 claptrap
+harl
+*.replace
 diamondtrap
 polymorphism
 karen
 templates
 interfaces
 fixed
+stack
 bureaucracy
 199*
