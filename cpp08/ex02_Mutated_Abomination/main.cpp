@@ -16,5 +16,10 @@ int main(void) {
 	MutantStack<int> mutant2(mutant1);
 	std::cout << mutant2.top() << '\n';
 
+	MutantStack<int>mutant3;
+
+	mutant3 = mutant1;
+	std::cout << mutant3.top() << '\n';
+
 	// MutantStack<int> mutant(dynamic_cast< MutantStack<int> >(stack));
 }

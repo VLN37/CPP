@@ -5,12 +5,13 @@ NAME 	= stack
 SRC		=	main.cpp \
 
 INC		=	MutantStack.hpp \
+			MutantStack.tpp \
 
 OBJ		= $(SRC:%.cpp=$(OBJDIR)/%.o)
 OBJDIR	= obj
 
 $(NAME):	$(OBJDIR) $(OBJ)
-		$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+		$(CC) $(OBJ) -o $(NAME)
 
 $(OBJDIR)/%.o:	%.cpp $(INC)
 		$(CC) $(CFLAGS) -c $< -o $@
@@ -25,3 +26,5 @@ $(OBJDIR):
 		mkdir -p $(OBJDIR)
 
 re:		fclean $(NAME)
+
+.PHONY: stack
