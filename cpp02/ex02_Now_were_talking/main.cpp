@@ -1,10 +1,22 @@
 // Copyright (c) 2022 João Rodriguez A.K.A. VLN37. All rights reserved.
 
-#include <iostream>
 #include "Fixed.hpp"
 
 int main(void) {
-	Fixed a;
+	{
+		std::cout << "PDF -------------\n";
+		Fixed a;
+		Fixed const b(Fixed(5.05f) * Fixed(2) );
+		std::cout << a << std::endl;
+		std::cout << ++a << std::endl;
+		std::cout << a << std::endl;
+		std::cout << a++ << std::endl;
+		std::cout << a << std::endl;
+		std::cout << b << std::endl;
+		std::cout << Fixed::max(a, b) << std::endl;
+		std::cout << "PDF -------------\n";
+	}
+	Fixed a(50);
 	Fixed const b(Fixed(5.05f) * Fixed(2));
 
 	std::cout << a 		<< std::endl;
@@ -32,10 +44,14 @@ int main(void) {
 
 
 
-	std::cout << "nbr1 + nbr2 = " << nbr1 + nbr2 << '\n';
-	std::cout << "nbr2 - nbr1 = " << nbr2 - nbr1 << '\n';
-	std::cout << "nbr4 / nbr5 = " << nbr4 / nbr5 << '\n';
-	std::cout << "nbr4 * nbr5 = " << nbr4 * nbr5 << '\n';
+	std::cout << "nbr1 + nbr2   = " << nbr1 + nbr2 << '\n';
+	std::cout << "nbr2 - nbr1   = " << nbr2 - nbr1 << '\n';
+	std::cout << "nbr4 / nbr5   = " << nbr4 / nbr5 << '\n';
+	std::cout << "nbr4 * nbr5   = " << nbr4 * nbr5 << '\n';
+	std::cout << "min nbr4 nbr5 = " << Fixed::min(nbr4, nbr5) << '\n';
+	std::cout << "max nbr4 nbr5 = " << Fixed::max(nbr4, nbr5) << '\n';
+	std::cout << "min nbr1 nbr2 = " << Fixed::min(nbr1, nbr2) << '\n';
+	std::cout << "max nbr1 nbr2 = " << Fixed::max(nbr1, nbr2) << '\n';
 	if (nbr2 > nbr1)
 		std::cout << nbr2 << " is higher than " << nbr1 << '\n';
 	else
@@ -60,8 +76,5 @@ int main(void) {
 		std::cout << nbr1 << " is different than " << nbr2 << '\n';
 	else
 		std::cout << "WARNING\n";
-
-
-
 	return 0;
 }
