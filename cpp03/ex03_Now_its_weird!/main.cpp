@@ -26,5 +26,6 @@ int	main(void) {
 	robot4.attack(robot1.get_name());
 	robot4.takeDamage(20);
 	robot4.beRepaired(10);
+	robot4.highFiveGuys();
 	robot4.WhoAmI();
 }

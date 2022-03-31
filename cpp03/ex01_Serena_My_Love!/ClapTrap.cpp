@@ -30,7 +30,7 @@ ClapTrap::~ClapTrap(void) {
 	std::cout << "ClapTrap destructor has been called\n";
 }
 
-ClapTrap& ClapTrap::operator=(ClapTrap& rhs) {
+ClapTrap& ClapTrap::operator=(ClapTrap const& rhs) {
 	this->name = rhs.get_name();
 	this->hit_points = rhs.get_hit_pts();
 	this->energy_points = rhs.get_energy_pts();

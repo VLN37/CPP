@@ -5,11 +5,16 @@
 int	main(void) {
 	ClapTrap robot1("Robot1");
 	ClapTrap robot2("Robot2");
-	ClapTrap robot3(robot1);
+	ClapTrap robot3;
+	ClapTrap robot4(robot3);
+
 
 	robot1.attack(robot2.get_name());
 	robot2.takeDamage(robot1.get_attack_dmg());
 	while (robot2.get_energy_pts() > 0)
 		robot2.beRepaired(2);
 	robot2.beRepaired(2);
+	while (robot1.get_energy_pts() > 0)
+		robot1.attack(robot2.get_name());
+	robot1.attack(robot2.get_name());
 }

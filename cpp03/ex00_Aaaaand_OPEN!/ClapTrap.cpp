@@ -3,16 +3,16 @@
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(void) {
-	std::cout << "default constructor has been called\n";
 	name.assign("Mr.Roboto");
+	std::cout << this->name << " default constructor has been called\n";
 	this->hit_points = 10;
 	this->energy_points = 10;
 	this->attack_damage = 0;
 }
 
 ClapTrap::ClapTrap(std::string name) {
-	std::cout << "string constructor has been called\n";
 	this->name.assign(name);
+	std::cout << this->name << " string constructor has been called\n";
 	this->hit_points = 10;
 	this->energy_points = 10;
 	this->attack_damage = 0;
@@ -24,10 +24,10 @@ ClapTrap::ClapTrap(ClapTrap& src) {
 }
 
 ClapTrap::~ClapTrap(void) {
-	std::cout << "detructor has been called\n";
+	std::cout << this->name << " destructor has been called\n";
 }
 
-ClapTrap& ClapTrap::operator=(ClapTrap& rhs) {
+ClapTrap& ClapTrap::operator=(ClapTrap const& rhs) {
 	this->name = rhs.get_name();
 	this->hit_points = rhs.get_hit_pts();
 	this->energy_points = rhs.get_energy_pts();

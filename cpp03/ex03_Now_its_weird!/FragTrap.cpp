@@ -36,8 +36,10 @@ FragTrap& FragTrap::operator=(FragTrap const& rhs) {
 	return *this;
 }
 
+
+//notice how changing line 44 for its attribute changes the outcome
 void	FragTrap::highFiveGuys(void) const {
 	if (this->hit_points < 1)
 		std::cout << "Cannot HighFive mode, he is already dead\n";
-	std::cout << this->_name << " throws a HighFive. Very wow.\n";
+	std::cout << this->get_name() << " throws a HighFive. Very wow.\n";
 }
