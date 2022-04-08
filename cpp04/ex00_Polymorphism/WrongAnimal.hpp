@@ -9,10 +9,10 @@
 class WrongAnimal {
 public:
 	WrongAnimal(void);
-	WrongAnimal(WrongAnimal& animal);
+	WrongAnimal(WrongAnimal const& animal);
 	~WrongAnimal(void);
 
-	void	operator=(WrongAnimal& rhs);
+	void	operator=(WrongAnimal const& rhs);
 
 	void			makeSound(void) const;
 	std::string		getType(void) const;
