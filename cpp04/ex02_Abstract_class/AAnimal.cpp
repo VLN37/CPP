@@ -7,16 +7,16 @@ AAnimal::AAnimal(void) {
 	this->type = "Animal";
 }
 
-AAnimal::AAnimal(AAnimal& animal) {
+AAnimal::AAnimal(AAnimal const& animal) {
 	std::cout << "Animal copy constructor called\n";
 	*this = animal;
 }
 
 AAnimal::~AAnimal(void) {
 	std::cout << "Animal destructor called\n";
-	return;
 }
 
 AAnimal& AAnimal::operator=(AAnimal const& rhs) {
 	this->type = rhs.type;
+	return *this;
 }

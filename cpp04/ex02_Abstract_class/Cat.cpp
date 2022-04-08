@@ -1,3 +1,4 @@
+
 // Copyright (c) 2022 João Rodriguez A.K.A. VLN37. All rights reserved.
 
 #include "Cat.hpp"
@@ -8,7 +9,7 @@ Cat::Cat(void) {
 	this->ideas = new Brain;
 }
 
-Cat::Cat(Cat& cat) : AAnimal() {
+Cat::Cat(Cat const& cat) : AAnimal() {
 	std::cout << "Cat copy constructor called\n";
 	this->ideas = new Brain;
 	*this = cat;

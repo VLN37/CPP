@@ -9,7 +9,7 @@
 class AAnimal {
 public:
 	AAnimal(void);
-	AAnimal(AAnimal& animal);
+	AAnimal(AAnimal const& animal);
 	virtual ~AAnimal(void);
 
 	AAnimal& operator=(AAnimal const& rhs);

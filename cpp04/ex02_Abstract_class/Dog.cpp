@@ -8,7 +8,7 @@ Dog::Dog(void) {
 	this->ideas = new Brain;
 }
 
-Dog::Dog(const Dog& dog) : AAnimal() {
+Dog::Dog(Dog const& dog) : AAnimal() {
 	std::cout << "Dog copy constructor called\n";
 	*this = dog;
 }
@@ -18,9 +18,9 @@ Dog::~Dog(void) {
 	delete this->ideas;
 }
 
-Dog& Dog::operator=(const Dog& rhs) {
+Dog& Dog::operator=(Dog const& rhs) {
 	this->type = rhs.type;
-	this->ideas = rhs.ideas;
+	*this->ideas = *rhs.ideas;
 	return *this;
 }
 

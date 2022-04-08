@@ -12,10 +12,10 @@ class Cat : public AAnimal {
 
 public:
 	Cat(void);
-	Cat(const Cat& cat);
+	Cat(Cat const& cat);
 	~Cat(void);
 
-	Cat& operator=(Cat& rhs);
+	Cat& operator=(Cat const& rhs);
 
 	virtual void	makeSound(void) const;
 	std::string		getType(void) const;
