@@ -20,7 +20,7 @@ public:
 
 	std::string const& getType(void) const;
 	virtual AMateria* clone(void) const = 0;
-	virtual void use(const ICharacter& target);
+	virtual void use(ICharacter const& target);
 
 protected:
 	std::string _type;

@@ -10,6 +10,7 @@ Dog::Dog(void) {
 
 Dog::Dog(Dog const& dog) : AAnimal() {
 	std::cout << "Dog copy constructor called\n";
+	this->ideas = new Brain;
 	*this = dog;
 }
 

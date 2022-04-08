@@ -8,23 +8,22 @@
 #include "AMateria.hpp"
 
 class MateriaSource : public IMateriaSource {
+public:
+	MateriaSource(void);
+	MateriaSource(MateriaSource const& src);
+	virtual ~MateriaSource(void);
 
-	public:
-		MateriaSource(void);
-		MateriaSource(MateriaSource const &src);
-		virtual ~MateriaSource(void);
+	MateriaSource const&	operator=(MateriaSource const& rhs);
+	virtual void			learnMateria(AMateria *matptr);
+	virtual	AMateria*		createMateria(std::string const& type);
+	AMateria*				find(std::string const type);
+	void					store(AMateria* m);
 
-		MateriaSource const &operator=(MateriaSource const &rhs);
-		virtual void learnMateria(AMateria *matptr);
-		virtual AMateria* createMateria(std::string const & type);
-		AMateria	*find(std::string const type);
-		void		store(AMateria *m);
+	AMateria	*spells[4];
 
-		AMateria	*spells[4];
-
-	private:
-		AMateria	*known_spells[100];
-		int			index;
+private:
+	AMateria	*known_spells[100];
+	int			index;
 };
 
 #endif

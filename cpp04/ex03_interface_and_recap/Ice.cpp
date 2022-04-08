@@ -22,7 +22,7 @@ AMateria* Ice::clone(void) const {
 }
 
 Ice const& Ice::operator=(Ice const& rhs) {
-	(void)rhs; //TODO(me)
+	this->_type = rhs._type;
 	return *this;
 }
 

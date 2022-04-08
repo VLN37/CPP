@@ -25,7 +25,7 @@ Cure const& Cure::operator=(Cure const& rhs) {
 	return *this;
 }
 
-void	Cure::use(ICharacter const& const target) {
+void	Cure::use(ICharacter const& target) {
 	std::cout << "heals "
 			  << target.getName()
 			  << " with "

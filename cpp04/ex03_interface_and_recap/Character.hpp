@@ -25,7 +25,7 @@ public:
 	virtual std::string const& getName(void) const;
 	virtual void equip(AMateria* m);
 	virtual void unequip(int idx);
-	virtual void use(int idx, const ICharacter& target);
+	virtual void use(int idx, ICharacter const& target);
 
 private:
 	MateriaSource	book;

@@ -22,11 +22,10 @@ MateriaSource::~MateriaSource(void) {
 
 MateriaSource const& MateriaSource::operator=(MateriaSource const& rhs) {
 	for (int i = 0; i < 4; i++)
-		if (rhs.spells[i])
+		if (rhs.spells[i]) {
 			this->spells[i] = rhs.spells[i]->clone();
-	int i = -1;
-	while (rhs.known_spells[++i])
-		delete rhs.known_spells[i];
+			this->known_spells[i] = this->spells[i];
+		}
 	return *this;
 }
 

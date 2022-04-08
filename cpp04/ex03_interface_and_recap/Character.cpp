@@ -23,6 +23,7 @@ Character::~Character(void) {
 
 Character const& Character::operator=(Character const& rhs) {
 	this->_name = rhs.getName();
+	this->book = rhs.book;
 	return *this;
 }
 
@@ -48,7 +49,7 @@ std::string const& Character::getName(void) const {
 	return this->_name;
 }
 
-void	Character::use(int idx, ICharacter& target) {
+void	Character::use(int idx, ICharacter const& target) {
 	if (idx < 0 || idx > 3)
 		return print_error("Inventory only has slots 0 - 3\n");
 	if (!this->book.spells[idx])

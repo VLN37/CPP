@@ -9,24 +9,46 @@
 #include "Cure.hpp"
 
 int	main(void) {
-	ICharacter*		me = new Character("me");
-	IMateriaSource*	src = new MateriaSource;
-	AMateria*		tmp;
+	std::cout << "[ IMateriaSource constructor ]\n";
+	IMateriaSource* src = new MateriaSource();
 
+	std::cout << "\n[ Learn Materia ICE ]\n";
 	src->learnMateria(new Ice());
+
+	std::cout << "\n[ Learn Materia ICE ]\n";
 	src->learnMateria(new Cure());
 
+	std::cout << "\n[ Character creation \"me\" ]\n";
+	ICharacter* me = new Character("me");
+
+	AMateria* tmp;
+
+	std::cout << "\n[ Create Materia ICE ]\n";
 	tmp = src->createMateria("ice");
-	me->equip(tmp);
-	tmp = src->createMateria("cure");
+
+	std::cout << "\n[ Equip Materia ICE ]\n";
 	me->equip(tmp);
 
+	std::cout << "\n[ Create Materia CURE ]\n";
+	tmp = src->createMateria("cure");
+
+	std::cout << "\n[ Equip Materia CURE ]\n";
+	me->equip(tmp);
+
+	std::cout << "\n[ Character creation \"bob\" ]\n";
 	ICharacter* bob = new Character("bob");
 
+	std::cout << "\n[ Character use slot [0] ICE ]\n";
 	me->use(0, *bob);
+
+	std::cout << "\n[ Character use slot [1] CURE ]\n";
 	me->use(1, *bob);
 
-	delete me;
-	delete src;
+	std::cout << "\n[ Destructor character \"bob\" ]\n";
 	delete bob;
+	std::cout << "\n[ Destructor character \"me\" (with equipped slots) ]\n";
+	delete me;
+
+	std::cout << "\n[ Destructor IMateriaSource (with equipped slots) ]\n";
+	delete src;
 }
