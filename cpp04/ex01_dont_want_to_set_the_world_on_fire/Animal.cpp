@@ -7,7 +7,7 @@ Animal::Animal(void) {
 	this->type = "Animal";
 }
 
-Animal::Animal(Animal& animal) {
+Animal::Animal(Animal const& animal) {
 	std::cout << "Animal copy constructor called\n";
 	*this = animal;
 }

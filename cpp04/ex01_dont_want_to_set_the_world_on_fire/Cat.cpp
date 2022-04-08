@@ -8,10 +8,10 @@ Cat::Cat(void) {
 	this->ideas = new Brain;
 }
 
-Cat::Cat(Cat& cat) : Animal() {
+Cat::Cat(Cat const& src) : Animal() {
 	std::cout << "Cat copy constructor called\n";
 	this->ideas = new Brain;
-	*this = cat;
+	*this = src;
 }
 
 Cat::~Cat(void) {
@@ -20,8 +20,9 @@ Cat::~Cat(void) {
 }
 
 Cat& Cat::operator=(Cat const& rhs) {
+	std::cout << "Cat assignment operator called\n";
 	this->type = rhs.type;
-	this->ideas = rhs.getBrain();
+	*this->ideas = *rhs.getBrain();
 	return *this;
 }
 

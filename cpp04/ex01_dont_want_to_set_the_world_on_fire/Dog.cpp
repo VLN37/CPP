@@ -8,9 +8,10 @@ Dog::Dog(void) {
 	this->ideas = new Brain;
 }
 
-Dog::Dog(Dog& dog) : Animal() {
+Dog::Dog(Dog const& src) : Animal() {
 	std::cout << "Dog copy constructor called\n";
-	*this = dog;
+	this->ideas = new Brain;
+	*this = src;
 }
 
 Dog::~Dog(void) {
@@ -19,10 +20,10 @@ Dog::~Dog(void) {
 	return;
 }
 
-Dog& Dog::operator=(Dog& rhs) {
+Dog& Dog::operator=(Dog const& rhs) {
+	std::cout << "Dog assignment operator called\n";
 	this->type = rhs.type;
-	for (int i = 0; i < 100; i++)
-		this->ideas[i] = rhs.ideas[i];
+	*this->ideas = *rhs.ideas;
 	return *this;
 }
 

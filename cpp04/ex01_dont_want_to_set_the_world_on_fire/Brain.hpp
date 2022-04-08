@@ -9,7 +9,7 @@
 class Brain {
 public:
 	Brain(void);
-	Brain(Brain& brain);
+	Brain(Brain const& brain);
 	~Brain(void);
 
 	Brain& operator=(Brain const& rhs);

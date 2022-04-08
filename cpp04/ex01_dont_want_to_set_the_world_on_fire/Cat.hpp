@@ -9,19 +9,19 @@
 #include "Brain.hpp"
 
 class Cat : public Animal {
-	public:
-		Cat(void);
-		Cat(Cat &cat);
-		~Cat(void);
+public:
+	Cat(void);
+	Cat(Cat const& cat);
+	virtual ~Cat(void);
 
-		Cat	&operator=(Cat const &rhs);
+	Cat	&operator=(Cat const &rhs);
 
-		virtual void	makeSound(void) const;
-		std::string		getType(void) const;
-		Brain			*getBrain(void) const;
+	virtual void	makeSound(void) const;
+	std::string		getType(void) const;
+	Brain			*getBrain(void) const;
 
-	private:
-		Brain			*ideas;
+private:
+	Brain			*ideas;
 };
 
 #endif
