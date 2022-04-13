@@ -4,6 +4,8 @@
 # define PRESIDENTIALPARDON_HPP
 
 #include <iostream>
+#include <cstdlib>
+#include <string>
 #include "Form.hpp"
 
 class PresidentialPardon : public Form {

@@ -5,6 +5,8 @@
 
 #include <iostream>
 #include <fstream>
+#include <cstdlib>
+#include <string>
 #include "Form.hpp"
 
 class ShrubberyCreationForm : public Form {

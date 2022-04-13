@@ -11,6 +11,12 @@ std::string Intern::templates[FORM_TYPES] = {
 	"presidential pardon",
 };
 
+Intern::funcptr Intern::fptr[FORM_TYPES] = {
+	&Intern::cloneShruberry,
+	&Intern::cloneRobotomy,
+	&Intern::clonePardon,
+};
+
 Intern::Intern(void) {
 	return;
 }
@@ -33,23 +39,20 @@ Form* Intern::makeForm(std::string name, std::string target) {
 
 	while (++i < FORM_TYPES)
 		if (name == Intern::templates[i])
-			break;
+			return (this->*fptr[i])(target);
+	std::cout << "Form " << name << " is not a valid template\n";
+	return NULL;
+}
 
-	switch (i) {
-	case 0:
-		std::cout << "Intern hands you a Shrubbery Creation Form\n";
-		return new ShrubberyCreationForm(target);
-		break;
-	case 1:
-		std::cout << "Intern hands you a Robotomy Request Form\n";
-		return new RobotomyRequestForm(target);
-		break;
-	case 2:
-		std::cout << "Intern hands you a Presidential Pardon Form\n";
-		return new PresidentialPardon(target);
-		break;
-	default:
-		std::cout << "Form " << name << " is not a valid template\n";
-		return NULL;
-	}
+
+Form* Intern::cloneShruberry(std::string target) const {
+	return new ShrubberyCreationForm(target);
+}
+
+Form* Intern::cloneRobotomy(std::string target) const {
+	return new RobotomyRequestForm(target);
+}
+
+Form* Intern::clonePardon(std::string target) const {
+	return new PresidentialPardon(target);
 }
