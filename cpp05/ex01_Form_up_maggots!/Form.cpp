@@ -22,27 +22,27 @@ void	Form::check_exception(int grade, int exec) {
 }
 
 Form::Form(void)
-	: _name(format_name("Form #"))
-	, _min_grade(150)
-	, _min_exec(150)
-	, _signed(false) {
+: _name(format_name("Form #"))
+, _min_grade(150)
+, _min_exec(150)
+, _signed(false) {
 	check_exception(_min_grade, _min_exec);
 	++Form::nbr;
 }
 
-Form::Form(const Form& src)
-	: _name(src.get_name()),
-	_min_grade(src.get_grade()),
-	_min_exec(src._min_exec),
-	_signed(src.is_signed()) {
+Form::Form(Form const& src)
+: _name(src.get_name()),
+_min_grade(src.get_grade()),
+_min_exec(src._min_exec),
+_signed(src.is_signed()) {
 	check_exception(_min_grade, _min_exec);
 }
 
 Form::Form(const int grade, const int exec)
-	: _name(format_name("Form #")),
-	_min_grade(grade),
-	_min_exec(exec),
-	_signed(false) {
+: _name(format_name("Form #")),
+_min_grade(grade),
+_min_exec(exec),
+_signed(false) {
 	check_exception(_min_grade, _min_exec);
 	++Form::nbr;
 }
@@ -51,7 +51,7 @@ Form::~Form(void) {
 	return;
 }
 
-const Form& Form::operator=(const Form& src) {
+const Form& Form::operator=(Form const& src) {
 	//cannot return reference to temporary value
 	(void)src;
 	return *this;
@@ -83,7 +83,7 @@ bool Form::is_signed(void) const {
 	return this->_signed;
 }
 
-std::ostream& operator<<(std::ostream& o, const Form& rhs) {
+std::ostream& operator<<(std::ostream& o, Form const& rhs) {
 	std::cout << "Form name            : "
 			  << rhs.get_name() << '\n'
 			  << "Minimum grade to sign: "
@@ -95,7 +95,7 @@ std::ostream& operator<<(std::ostream& o, const Form& rhs) {
 	return o;
 }
 
-void	Form::beSigned(const Bureaucrat& congressman) {
+void	Form::beSigned(Bureaucrat const& congressman) {
 	if (this->_signed) {
 		std::cout << "Form is already signed.\n";
 	}

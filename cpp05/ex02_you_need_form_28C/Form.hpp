@@ -21,13 +21,13 @@ public:
 	const Form& operator=(const Form& src);
 
 	std::string		get_name(void) const;
-	int				get_grade(void) const;
-	int				get_exec(void) const;
-	bool			is_signed(void) const;
+	int						get_grade(void) const;
+	int						get_exec(void) const;
+	bool					is_signed(void) const;
 	std::string		format_name(std::string const& src);
-	void			check_exception(int grade, int exec);
-	void			beSigned(const Bureaucrat& congressman);
-	void			execute(Bureaucrat const& congressman) const;
+	void					check_exception(int grade, int exec);
+	void					beSigned(Bureaucrat const& congressman);
+	void					execute(Bureaucrat const& congressman) const;
 	virtual void	enact(const Form& form) const = 0;
 
 
@@ -50,9 +50,9 @@ public:
 
 private:
 	const std::string	_name;
-	const int			_min_grade;
-	const int			_min_exec;
-	bool				_signed;
+	const int					_min_grade;
+	const int					_min_exec;
+	bool							_signed;
 };
 
 std::ostream& operator<<(std::ostream& o, const Form& rhs);

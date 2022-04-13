@@ -13,7 +13,7 @@ class Bureaucrat;
 class Form {
 public:
 	Form(void);
-	Form(const Form& src);
+	Form(Form const& src);
 	Form(const int grade, const int exec);
 	~Form(void);
 
@@ -21,12 +21,12 @@ public:
 	const Form& operator=(const Form& src);
 
 	std::string	get_name(void) const;
-	int			get_grade(void) const;
-	int			get_exec(void) const;
-	bool		is_signed(void) const;
-	void		check_exception(int grade, int exec);
-	std::string		format_name(std::string const& src);
-	void		beSigned(const Bureaucrat& congressman);
+	int					get_grade(void) const;
+	int					get_exec(void) const;
+	bool				is_signed(void) const;
+	void				check_exception(int grade, int exec);
+	std::string	format_name(std::string const& src);
+	void				beSigned(Bureaucrat const& congressman);
 
 
 	class GradeTooHighException : public std::exception {

@@ -6,13 +6,13 @@ int RobotomyRequestForm::req_sign = 72;
 int RobotomyRequestForm::req_exec = 45;
 
 RobotomyRequestForm::RobotomyRequestForm(void)
-	: Form(req_sign, req_exec), _name(format_name("Form #"))
+: Form(req_sign, req_exec), _name(format_name("Form #"))
 	, _min_grade(req_sign), _min_exec(req_exec), _signed(false) {
 	_target = "NULL";
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& src)
-	: Form(req_sign, req_exec), _name(src.get_name()), _min_grade(src.get_grade()),
+: Form(req_sign, req_exec), _name(src.get_name()), _min_grade(src.get_grade()),
 	_min_exec(src.get_exec()) {
 	*this = src;
 }

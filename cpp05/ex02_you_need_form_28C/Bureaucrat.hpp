@@ -4,6 +4,7 @@
 # define BUREAUCRAT_HPP
 
 #include <iostream>
+#include <string>
 #include "Form.hpp"
 
 #define MAX_GRADE 1

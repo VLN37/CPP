@@ -18,18 +18,18 @@ public:
 	Bureaucrat(std::string name, int grade);
 	~Bureaucrat(void);
 
-	Bureaucrat& operator=(Bureaucrat const& rhs);
-	Bureaucrat operator++(int);
-	Bureaucrat& operator++(void);
-	Bureaucrat operator--(int);
-	Bureaucrat& operator--(void);
+	Bureaucrat&	operator=(Bureaucrat const& rhs);
+	Bureaucrat	operator++(int);
+	Bureaucrat&	operator++(void);
+	Bureaucrat	operator--(int);
+	Bureaucrat&	operator--(void);
 
-	std::string get_name(void) const;
-	int			get_grade(void) const;
+	std::string	get_name(void) const;
+	int					get_grade(void) const;
 
 private:
 	const std::string	_name;
-	int					_grade;
+	int								_grade;
 
 	void check_exceptions(int grade);
 	class GradeTooHighException : public std::exception {

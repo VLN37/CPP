@@ -9,7 +9,7 @@
 int main(void) {
 	std::cout << "this compiles\n";
 
-	Form* form = new RobotomyRequestForm;
+	Form* form = new RobotomyRequestForm("Alex deLarge");
 	Bureaucrat suplicy("suplicy", 30);
 
 	form->beSigned(suplicy);
