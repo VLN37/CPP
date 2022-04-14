@@ -29,7 +29,6 @@ void identify(Base* p) {
 		std::cout << "This object pointer is of Class B\n";
 	if (dynamic_cast<ClassC*>(p))
 		std::cout << "This object pointer is of Class C\n";
-
 }
 
 void identify(Base& p) {
@@ -56,5 +55,6 @@ int main(void) {
 
 	identify(ptr);
 	identify(ref);
+  delete ptr;
 	return 0;
 }

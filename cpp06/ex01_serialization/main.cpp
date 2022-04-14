@@ -18,8 +18,11 @@ int main(void) {
 	std::cout << "Data1 before: " << data1->foo << '\n';
 
 	ptr = serialize(data1);
-	std::cout << "UINT: " << reinterpret_cast<Data *>(ptr)
-	<< '\n' << "DATA: " << deserialize(ptr) << '\n';
+	std::cout  << "PTR         : " << ptr << '\n'
+	<< "UINT        : " << reinterpret_cast<Data *>(ptr) << '\n'
+	<< "DATA        : " << deserialize(ptr) << '\n';
 
+	std::cout << "Data1 after : " << data1->foo << '\n';
+  delete data1;
 	return 0;
 }
