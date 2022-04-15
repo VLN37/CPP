@@ -11,7 +11,7 @@
 Base* generate(void) {
 	unsigned int seed;
 
-	srand((unsigned int)time(0));
+	srand((static_cast<unsigned int>(time(0))));
 	seed = rand() % 3;
 	std::cout << seed << '\n';
 	if (seed == 0)
