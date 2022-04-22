@@ -12,9 +12,9 @@ static void literal_char(const char* str) {
 		std::cout << "C: " << *str << '\n';
 	else
 		std::cout << "C: Character is non printable or white space\n";
-	std::cout 	  << "I: " << (int)*str << '\n';
-	std::cout 	  << "F: " << (float)*str << '\n';
-	std::cout 	  << "D: " << (double)*str << "\n\n";
+	std::cout 	  << "I: " << static_cast<int>(*str) << '\n';
+	std::cout 	  << "F: " << static_cast<float>(*str) << '\n';
+	std::cout 	  << "D: " << static_cast<double>(*str) << "\n\n";
 }
 
 static void literal_float(const char* str) {
