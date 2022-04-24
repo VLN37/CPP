@@ -13,7 +13,7 @@ Base* generate(void) {
 
 	srand((static_cast<unsigned int>(time(0))));
 	seed = rand() % 3;
-	std::cout << seed << '\n';
+	std::cout << "Seed: " << seed << '\n';
 	if (seed == 0)
 		return new ClassA;
 	else if (seed == 1)
@@ -24,29 +24,29 @@ Base* generate(void) {
 
 void identify(Base* p) {
 	if (dynamic_cast<ClassA*>(p))
-		std::cout << "This object pointer is of Class A\n";
+		std::cout << "PTR: This object pointer is of Class A\n";
 	if (dynamic_cast<ClassB*>(p))
-		std::cout << "This object pointer is of Class B\n";
+		std::cout << "PTR: This object pointer is of Class B\n";
 	if (dynamic_cast<ClassC*>(p))
-		std::cout << "This object pointer is of Class C\n";
+		std::cout << "PTR: This object pointer is of Class C\n";
 }
 
 void identify(Base& p) {
 	try {
-		dynamic_cast<ClassA&>(p);
-		std::cout << "This object referece is of Class A\n";
+		ClassA A = dynamic_cast<ClassA&>(p);
+		std::cout << "REF: This object referece is of Class A\n";
 	}
-	catch (std::exception &e) { std::cout << e.what() << '\n'; }
+	catch (std::exception &e) { std::cout << "REF: " << e.what() << '\n'; }
 	try {
-		dynamic_cast<ClassB&>(p);
-		std::cout << "This object referece is of Class B\n";
+		ClassB B = dynamic_cast<ClassB&>(p);
+		std::cout << "REF: This object referece is of Class B\n";
 	}
-	catch (std::exception &e) { std::cout << e.what() << '\n'; }
+	catch (std::exception &e) { std::cout << "REF: " << e.what() << '\n'; }
 	try {
-		dynamic_cast<ClassC&>(p);
-		std::cout << "This object referece is of Class C\n";
+		ClassC C = dynamic_cast<ClassC&>(p);
+		std::cout << "REF: This object referece is of Class C\n";
 	}
-	catch (std::exception &e) { std::cout << e.what() << '\n'; }
+	catch (std::exception &e) { std::cout << "REF: " << e.what() << '\n'; }
 }
 
 int main(void) {

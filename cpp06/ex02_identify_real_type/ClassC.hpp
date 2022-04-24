@@ -5,8 +5,6 @@
 
 #include "Base.hpp"
 
-class ClassC : public Base {
-	virtual ~ClassC(void);
-};
+class ClassC : public Base { };
 
 #endif

@@ -2,10 +2,8 @@ CC 		= c++
 CFLAGS 	= -Wall -Wextra -Werror -g3 -std=c++98 -pedantic
 NAME 	= casting
 
-SRC		= ClassA.cpp \
-		  ClassB.cpp \
-		  ClassC.cpp \
-		  main.cpp \
+SRC		= main.cpp \
+				Base.cpp \
 
 INC		= Base.hpp \
 		  ClassA.hpp \
