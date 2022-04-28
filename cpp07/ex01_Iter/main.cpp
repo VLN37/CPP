@@ -6,9 +6,9 @@
 int main(void) {
 	std::cout << "this compiles\n";
 
-	float arrfloat[] = { 42.21, 21.42, 12.24};
-	char *str = strdup("DMBQXOSHNN");
-	int arrint[] = { 24, 42, 21};
+	char	str[] = "DMBQXOSHNN";
+	float	arrfloat[] = { 42.21, 21.42, 12.24};
+	int		arrint[] = { 24, 42, 21};
 
 	void (*fint)(int *) = &addOne<int>;
 	void (*fchar)(char *) = &addOne<char>;
@@ -31,6 +31,4 @@ int main(void) {
 	iter(arrfloat, 3, ffloat);
 	std::cout << "Float array after : ";
 	print_array(arrfloat, 3);
-
-	free(str);
 }
