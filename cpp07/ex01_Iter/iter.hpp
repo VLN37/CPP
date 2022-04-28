@@ -16,7 +16,7 @@ void addOne(T* var) {
 
 template<typename T>
 void print_array(T* arr, unsigned int size) {
-	for (int i = 0; i < size; i++)
+	for (size_t i = 0; i < size; i++)
 			std::cout << arr[i] << ' ';
 	std::cout << '\n';
 }
@@ -24,7 +24,8 @@ void print_array(T* arr, unsigned int size) {
 template<typename T>
 void iter(T* arr, unsigned int size, void(*f)(T*)) {
 	int i = -1;
-	while (++i < size) {
+	int size2 = static_cast<int>(size);
+	while (++i < size2) {
 		f(&arr[i]);
 	}
 }

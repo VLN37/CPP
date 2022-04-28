@@ -10,7 +10,7 @@ INC		=	Array.hpp \
 OBJ		= $(SRC:%.cpp=$(OBJDIR)/%.o)
 OBJDIR	= obj
 
-$(NAME):	$(OBJDIR) $(OBJ)
+$(NAME):	$(OBJDIR) $(OBJ) $(INC)
 		$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 $(OBJDIR)/%.o:	%.cpp $(INC)
