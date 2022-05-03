@@ -8,7 +8,7 @@ int main(void) {
 	{
 		Span span(20000);
 
-		for (int i = 0; i < 20000; i++)
+		for (int i = 0; i < 100; i++)
 			span.addNumber(10 * (10 * i * i));
 		span.print();
 		try {

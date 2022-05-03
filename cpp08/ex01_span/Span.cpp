@@ -57,6 +57,10 @@ void Span::addNumber(int n) {
 	if (it != _list.end())
 		update_span(*it, n);
 	_list.insert(it, n);
+	if (_list.size() > 0 && n != _list.front())
+		update_span(_list.front(), n);
+	if (_list.size() > 2 && n != _list.back())
+		update_span(_list.back(), n);
 }
 /**************************************************************************** */
 
