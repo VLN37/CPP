@@ -14,6 +14,8 @@
 
 class Span {
 public:
+	typedef std::list<int>::iterator iterator;
+
 	Span(unsigned int N);
 	Span(Span const& src);
 	~Span(void);
@@ -24,9 +26,12 @@ public:
 	void		print(void) const;
 	void		addNumber(int n);
 	void		addNumber(int first, int last);
+	void		addNumber(iterator first, iterator last);
 	int			shortestSpan(void) const;
 	int			longestSpan(void) const;
 	size_t		getSize(void) const;
+	iterator	begin(void) { return _list.begin(); }
+	iterator	end(void) { return _list.end(); }
 
 private:
 	Span(void);

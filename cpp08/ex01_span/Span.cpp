@@ -78,6 +78,11 @@ void Span::addNumber(int first, int last) {
 	}
 }
 
+void Span::addNumber(iterator first, iterator last) {
+	while (first != last)
+		addNumber(*first++);
+}
+
 void Span::out(int n) {
 	std::cout << n << " ";
 }

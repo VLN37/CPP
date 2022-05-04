@@ -19,7 +19,7 @@ int main(void) {
 		}
 	}
 	{
-		Span span(10);
+		Span span(20);
 
 		span.shortestSpan();
 		span.addNumber(10);
@@ -27,6 +27,8 @@ int main(void) {
 		span.addNumber(60);
 		span.addNumber(560);
 		span.print();
+
+		//test exception handling
 		try {
 			span.addNumber(5560);
 			span.addNumber(5);
@@ -40,7 +42,11 @@ int main(void) {
 		span.print();
 		span.addNumber(502, 500);
 
+		//test cpy constructor
 		Span spancpy(span);
+		spancpy.print();
+
+		spancpy.addNumber(span.begin(), span.end());
 		spancpy.print();
 	}
 }
