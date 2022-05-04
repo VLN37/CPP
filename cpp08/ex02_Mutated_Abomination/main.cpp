@@ -38,4 +38,9 @@ int main(void) {
 		mutant1.push(i);
 	std::for_each(mutant1.begin(), mutant1.end(), print<int>);
 	std::cout << "\n\n";
+
+	MutantStack<int> cpy(mutant1);
+	std::cout << "***** FT STACK COPY CONSTRUCTOR *****\n";
+	std::for_each(mutant1.begin(), mutant1.end(), print<int>);
+	std::cout << "\n\n";
 }
