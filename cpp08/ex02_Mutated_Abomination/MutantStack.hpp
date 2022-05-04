@@ -4,8 +4,6 @@
 # define MUTANT_STACK_HPP
 
 #include <stack>
-#include <vector>
-#include <iostream>
 #include <deque>
 
 template <typename T>

@@ -1,10 +1,11 @@
 // Copyright (c) 2022 João Rodriguez A.K.A. VLN37. All rights reserved.
 
 #include <algorithm>
+#include <iostream>
 #include "MutantStack.hpp"
 
 template <typename T>
-void print(T& val) {
+void print(T const& val) {
 	std::cout << val << ' ';
 }
 
@@ -41,6 +42,6 @@ int main(void) {
 
 	MutantStack<int> cpy(mutant1);
 	std::cout << "***** FT STACK COPY CONSTRUCTOR *****\n";
-	std::for_each(mutant1.begin(), mutant1.end(), print<int>);
+	std::for_each(cpy.begin(), cpy.end(), print<int>);
 	std::cout << "\n\n";
 }
